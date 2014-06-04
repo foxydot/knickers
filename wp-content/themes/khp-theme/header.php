@@ -76,6 +76,7 @@
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 			<div class="search_sm">
             <ul>
+                <li><a href="/contact-us/"><img src="<?php bloginfo('template_url'); ?>/images/contact.jpg" alt="facebook" /></a></li>
             	<li><a href="https://www.facebook.com/knickershp" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/fb.jpg" alt="facebook" /></a></li>
               <li><a href="http://twitter.com/#!/KnickersofHP" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/twit.jpg" alt="twitter" /></a></li>
               <li><a href="/feed/"><img src="<?php bloginfo('template_url'); ?>/images/rss.jpg" alt="rss" /></a></li>
