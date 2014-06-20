@@ -28,7 +28,7 @@
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged;
+	global $page, $paged, $msd_social;
 
 	wp_title( '|', true, 'right' );
 
@@ -75,11 +75,7 @@
 				<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 			<div class="search_sm">
-            <ul>
-            	<li><a href="https://www.facebook.com/knickershp" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/fb.jpg" alt="facebook" /></a></li>
-              <li><a href="http://twitter.com/#!/KnickersofHP" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/twit.jpg" alt="twitter" /></a></li>
-              <li><a href="/feed/"><img src="<?php bloginfo('template_url'); ?>/images/rss.jpg" alt="rss" /></a></li>
-            <li>
+            <?php print $msd_social->social_media(); ?>
 			<?php
 				// Has the text been hidden?
 				if ( 'blank' == get_header_textcolor() ) :
@@ -92,8 +88,6 @@
 			?>
 				<?php get_search_form(); ?>
 			<?php endif; ?>
-            </li>
-            </ul>
             </div>
 
 
@@ -112,12 +106,11 @@
 	<div id="homebanner">
         	<?php 
         	ob_start();
-        	$slidedeck = do_shortcode('[SlideDeck2 id=581]');
-        	ts_data($slidedeck);
-        	 //ob_get_contents();
+        	echo do_shortcode('[SlideDeck2 id=1053]');
+        	$slidedeck = ob_get_contents();
         	ob_end_clean();
         	if($slidedeck != ''){
-        		print $sidedeck;
+        		print $slidedeck;
         	}elseif(function_exists('wp_content_slider')) { wp_content_slider(); }  ?>
     </div>
     <?php } ?>       

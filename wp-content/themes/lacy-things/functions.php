@@ -90,6 +90,8 @@ function twentyeleven_setup() {
 
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
+    
+    add_theme_support( 'woocommerce' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentyeleven' ) );
@@ -426,15 +428,34 @@ function twentyeleven_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	register_sidebar( array(
-		'name' => __( 'Footer Area Three', 'twentyeleven' ),
-		'id' => 'sidebar-5',
-		'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
+    register_sidebar( array(
+        'name' => __( 'Footer Area Three', 'twentyeleven' ),
+        'id' => 'sidebar-5',
+        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => "</aside>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name' => __( 'Homepage Upper Left', 'twentyeleven' ),
+        'id' => 'home-top-left',
+        'description' => __( 'An optional widget area for your homepage', 'twentyeleven' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => "</aside>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name' => __( 'Homepage Lower Right', 'twentyeleven' ),
+        'id' => 'home-btm-right',
+        'description' => __( 'An optional widget area for your homepage', 'twentyeleven' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => "</aside>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'twentyeleven_widgets_init' );
 
@@ -609,3 +630,114 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+if ( ! function_exists( 'woocommerce_subcategory_thumbnail' ) ) {
+
+    /**
+     * Show subcategory thumbnails.
+     *
+     * @access public
+     * @param mixed $category
+     * @subpackage  Loop
+     * @return void
+     */
+    function woocommerce_subcategory_thumbnail( $category ) {
+        $small_thumbnail_size   = apply_filters( 'single_product_small_thumbnail_size', 'shop_catalog' );
+        $dimensions             = wc_get_image_size( $small_thumbnail_size );
+        $thumbnail_id           = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true  );
+        
+        if(!$thumbnail_id){$args = array(
+                'posts_per_page' => 1,
+                'product_cat' => $category->slug,
+                'post_type' => 'product',
+            );
+            $products = get_posts($args);
+            $thumbnail_id = get_post_thumbnail_id($products[0]->ID);
+        }
+
+        if ( $thumbnail_id ) {
+            $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
+            $image = $image[0];
+        } else {
+            $image = wc_placeholder_img_src();
+        }
+
+        if ( $image ) {
+            // Prevent esc_url from breaking spaces in urls for image embeds
+            // Ref: http://core.trac.wordpress.org/ticket/23605
+            $image = str_replace( ' ', '%20', $image );
+            echo '<img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '" width="' . esc_attr( $dimensions['width'] ) . '" height="' . esc_attr( $dimensions['height'] ) . '" />';
+        }
+    }
+}
+
+/*
+ * Add styles and scripts
+*/
+add_action('wp_enqueue_scripts', 'msdlab_add_styles');
+add_action('wp_enqueue_scripts', 'msdlab_add_scripts');
+
+function msdlab_add_styles() {
+    global $is_IE;
+    if(!is_admin()){
+        //use cdn        
+            wp_enqueue_style('bootstrap-style','//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+            wp_enqueue_style('font-awesome-style','//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',array('bootstrap-style'));
+        //use local
+            //wp_enqueue_style('bootstrap-style',get_stylesheet_directory_uri().'/lib/bootstrap/css/bootstrap.css');
+            //wp_enqueue_style('font-awesome-style',get_stylesheet_directory_uri().'/lib/font-awesome/css/font-awesome.css',array('bootstrap-style'));
+            $queue[] = 'bootstrap-style';
+            $queue[] = 'font-awesome-style';
+        wp_enqueue_style('msd-style',get_stylesheet_directory_uri().'/css/style.css',$queue);
+        $queue[] = 'msd-style';
+        if(is_front_page()){
+            //wp_enqueue_style('msd-homepage-style',get_stylesheet_directory_uri().'/lib/css/homepage.css',$queue);
+            //$queue[] = 'msd-homepage-style';
+        }    
+        if($is_IE){
+            //wp_enqueue_style('ie-style',get_stylesheet_directory_uri().'/lib/css/ie.css',$queue);
+            //$queue[] = 'ie-style';
+            
+           // wp_enqueue_style('ie8-style',get_template_directory_uri() . '/lib/css/ie8.css');
+            //global $wp_styles;
+            //$wp_styles->add_data( 'ie8-style', 'conditional', 'lte IE 8' );
+        }    
+    }
+}
+
+function msdlab_add_scripts() {
+    global $is_IE;
+    if(!is_admin()){
+        //use cdn
+            //wp_enqueue_script('bootstrap-jquery','//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',array('jquery'));
+        //use local
+            //wp_enqueue_script('bootstrap-jquery',get_stylesheet_directory_uri().'/lib/bootstrap/js/bootstrap.min.js',array('jquery'));
+        //wp_enqueue_script('msd-jquery',get_stylesheet_directory_uri().'/lib/js/theme-jquery.js',array('jquery','bootstrap-jquery'));
+        //wp_enqueue_script('equalHeights',get_stylesheet_directory_uri().'/lib/js/jquery.equal-height-columns.js',array('jquery'));
+        if($is_IE){
+        }
+        if(is_front_page()){
+            //wp_enqueue_script('msd-homepage-jquery',get_stylesheet_directory_uri().'/lib/js/homepage-jquery.js',array('jquery','bootstrap-jquery'));
+        }
+    }
+}
+
+/*
+* A useful troubleshooting function. Displays arrays in an easy to follow format in a textarea.
+*/
+if ( ! function_exists( 'ts_data' ) ) :
+function ts_data($data){
+    $ret = '<textarea class="troubleshoot" cols="100" rows="20">';
+    $ret .= print_r($data,true);
+    $ret .= '</textarea>';
+    print $ret;
+}
+endif;
+/*
+* A useful troubleshooting function. Dumps variable info in an easy to follow format in a textarea.
+*/
+if ( ! function_exists( 'ts_var' ) && function_exists( 'ts_data' ) ) :
+function ts_var($var){
+    ts_data(var_export( $var , true ));
+}
+endif;
