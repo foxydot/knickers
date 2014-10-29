@@ -87,6 +87,9 @@ function twentyeleven_setup() {
 
 	// Grab Twenty Eleven's Ephemera widget.
 	require( get_template_directory() . '/inc/widgets.php' );
+	
+	// Grab MSDLAB functions.
+	require( get_template_directory() . '/inc/msd-functions.php' );
 
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
@@ -643,7 +646,7 @@ if ( ! function_exists( 'woocommerce_subcategory_thumbnail' ) ) {
      */
     function woocommerce_subcategory_thumbnail( $category ) {
         $small_thumbnail_size   = apply_filters( 'single_product_small_thumbnail_size', 'shop_catalog' );
-        $dimensions             = wc_get_image_size( $small_thumbnail_size );
+        $dimensions             = function_exists('wc_get_image_size')?wc_get_image_size( $small_thumbnail_size ):array('width'=>'','height'=>'');
         $thumbnail_id           = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true  );
         
         if(!$thumbnail_id){$args = array(
