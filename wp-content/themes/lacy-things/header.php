@@ -81,12 +81,12 @@
 				if ( 'blank' == get_header_textcolor() ) :
 			?>
 				<div class="only-search<?php if ( $header_image ) : ?> with-image<?php endif; ?>">
-				<?php get_search_form(); ?>
+				<?php get_product_search_form(); ?>
 				</div>
 			<?php
 				else :
 			?>
-				<?php get_search_form(); ?>
+				<?php get_product_search_form(); ?>
 			<?php endif; ?>
             </div>
 
