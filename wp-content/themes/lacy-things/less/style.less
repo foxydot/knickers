@@ -13,6 +13,10 @@ Text Domain: twentyeleven
 @import url('woocommerce.css'); 
 @import url(http://fonts.googleapis.com/css?family=Italianno|Lovers+Quarrel);
 
+.fontawesome {
+  font-family: FontAwesome;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -457,8 +461,10 @@ textarea {
 input[type=text] {
 	padding: 3px;
 }
+#searchform{
+  position: relative;
+}
 input#s {
-	background: url(../images/search.png) no-repeat right;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	font-size: 14px;
@@ -467,7 +473,17 @@ input#s {
 	padding: 2px 10px 2px 14px;
 }
 input#searchsubmit {
-	display: none;
+	border: 0;
+  min-height: 24px;
+  padding: 0;
+  position: absolute;
+  width: 24px;
+  color: #ccc;
+  background: 0;
+  font-size: 1.2em;
+  right: 0;
+  top: 0;
+  .fontawesome;
 }
 
 /* Links */
@@ -641,7 +657,6 @@ background: #96bb47;
 #branding #s:focus {
 }
 #branding #searchsubmit {
-	display: none;
 }
 #branding .only-search #searchform {
 	top: 5px;
@@ -1794,6 +1809,7 @@ section.recent-posts .other-recent-posts li:after {
 }
 
 /* Search Widget */
+
 .widget_search form {
 	margin: 0 0 1.625em;
 }

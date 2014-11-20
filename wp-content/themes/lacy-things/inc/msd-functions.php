@@ -310,3 +310,9 @@ function msdlab_sitemap(){
     </div>';
     print $ret;
 } 
+
+add_filter('get_product_search_form','msdlab_product_search_form');
+function msdlab_product_search_form($content){
+    $content = preg_replace('@value="Search"@i','value="&#xF002;"',$content);
+    return $content;
+}

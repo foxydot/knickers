@@ -9,6 +9,9 @@ Text Domain: twentyeleven
 */
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
 --------------------------------------------------------------*/
+.fontawesome {
+  font-family: FontAwesome;
+}
 html,
 body,
 div,
@@ -530,8 +533,10 @@ textarea {
 input[type=text] {
   padding: 3px;
 }
+#searchform {
+  position: relative;
+}
 input#s {
-  background: url(../images/search.png) no-repeat right;
   -moz-border-radius: 2px;
   border-radius: 2px;
   font-size: 14px;
@@ -540,7 +545,17 @@ input#s {
   padding: 2px 10px 2px 14px;
 }
 input#searchsubmit {
-  display: none;
+  border: 0;
+  min-height: 24px;
+  padding: 0;
+  position: absolute;
+  width: 24px;
+  color: #ccc;
+  background: 0;
+  font-size: 1.2em;
+  right: 0;
+  top: 0;
+  font-family: FontAwesome;
 }
 /* Links */
 a {
@@ -697,9 +712,6 @@ a:hover {
   float: right;
   background-color: #f9f9f9;
   width: 170px;
-}
-#branding #searchsubmit {
-  display: none;
 }
 #branding .only-search #searchform {
   top: 5px;
