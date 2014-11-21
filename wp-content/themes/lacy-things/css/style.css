@@ -2534,3 +2534,13 @@ ul.bannerlink li.gift-cert1 a {
 .home .home-widgets .home-top.home-right .widget {
   background-image: url(../images/twitterlogo.png);
 }
+.woocommerce .related ul li.product,
+.woocommerce .related ul.products li.product,
+.woocommerce .upsells.products ul li.product,
+.woocommerce .upsells.products ul.products li.product,
+.woocommerce-page .related ul li.product,
+.woocommerce-page .related ul.products li.product,
+.woocommerce-page .upsells.products ul li.product,
+.woocommerce-page .upsells.products ul.products li.product {
+  width: 30.5%;
+}

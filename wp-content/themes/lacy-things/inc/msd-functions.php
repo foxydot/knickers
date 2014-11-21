@@ -316,3 +316,7 @@ function msdlab_product_search_form($content){
     $content = preg_replace('@value="Search"@i','value="&#xF002;"',$content);
     return $content;
 }
+// Redefine woocommerce_output_related_products()
+function woocommerce_output_related_products() {
+woocommerce_related_products(3,3); // Display 4 products in rows of 2
+}
