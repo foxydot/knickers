@@ -1,5 +1,5 @@
 <?php 
-global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info,$gallery_info,$location_info;
+global $project_header,$project_info,$client_info,$additional_files,$testimonial_info,$gallery_info,$location_info;
 
 $client_info = new WPAlchemy_MetaBox(array
         (
@@ -60,18 +60,6 @@ $additional_files = new WPAlchemy_MetaBox(array
             'autosave' => TRUE,
             'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
             'prefix' => '_files_' // defaults to NULL
-        ));
-$event_info = new WPAlchemy_MetaBox(array
-        (
-            'id' => '_event_info',
-            'title' => 'Event Info',
-            'types' => array('event'),
-            'context' => 'normal',
-            'priority' => 'high',
-            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/event-information.php',
-            'autosave' => TRUE,
-            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
-            'prefix' => '_event_' // defaults to NULL
         ));
 $testimonial_info = new WPAlchemy_MetaBox(array
         (

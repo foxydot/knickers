@@ -1,134 +1,56 @@
-<?php global $wpalchemy_media_access; 
-$states = array('AL'=>"Alabama",
-        'AK'=>"Alaska",
-        'AZ'=>"Arizona",
-        'AR'=>"Arkansas",
-        'CA'=>"California",
-        'CO'=>"Colorado",
-        'CT'=>"Connecticut",
-        'DE'=>"Delaware",
-        'DC'=>"District Of Columbia",
-        'FL'=>"Florida",
-        'GA'=>"Georgia",
-        'HI'=>"Hawaii",
-        'ID'=>"Idaho",
-        'IL'=>"Illinois",
-        'IN'=>"Indiana",
-        'IA'=>"Iowa",
-        'KS'=>"Kansas",
-        'KY'=>"Kentucky",
-        'LA'=>"Louisiana",
-        'ME'=>"Maine",
-        'MD'=>"Maryland",
-        'MA'=>"Massachusetts",
-        'MI'=>"Michigan",
-        'MN'=>"Minnesota",
-        'MS'=>"Mississippi",
-        'MO'=>"Missouri",
-        'MT'=>"Montana",
-        'NE'=>"Nebraska",
-        'NV'=>"Nevada",
-        'NH'=>"New Hampshire",
-        'NJ'=>"New Jersey",
-        'NM'=>"New Mexico",
-        'NY'=>"New York",
-        'NC'=>"North Carolina",
-        'ND'=>"North Dakota",
-        'OH'=>"Ohio",
-        'OK'=>"Oklahoma",
-        'OR'=>"Oregon",
-        'PA'=>"Pennsylvania",
-        'RI'=>"Rhode Island",
-        'SC'=>"South Carolina",
-        'SD'=>"South Dakota",
-        'TN'=>"Tennessee",
-        'TX'=>"Texas",
-        'UT'=>"Utah",
-        'VT'=>"Vermont",
-        'VA'=>"Virginia",
-        'WA'=>"Washington",
-        'WV'=>"West Virginia",
-        'WI'=>"Wisconsin",
-        'WY'=>"Wyoming");
-?>
-<style>
-#postdivrich {display: none;}
-</style>
+<?php global $wpalchemy_media_access,$wpdb; ?>
+<?php
+$all_locations = $wpdb->get_col("SELECT meta_value
+    FROM $wpdb->postmeta WHERE meta_key = '_date_event_location'" );
+    $location_values = array_unique($all_locations);
+    asort($location_values);
+    ?>
 <div class="meta_control">
     <div class="table">
         <div class="row">
             <div class="cell">
-            <?php $metabox->the_field('venue'); ?>
-                <label>Location Name</label>
-                <div class="input_container">
-                    <input type="text" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
-               </div>
+                <?php $metabox->the_field('event_start_datestamp'); ?>
+                <input type="hidden" class="start_datestamp datestamp" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                <label>Event Start</label>
+                <?php $metabox->the_field('event_start_date'); ?>
+                <div class="input_container half"><input type="text" class="datepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>"></div>
+                <?php $metabox->the_field('event_start_time'); ?>
+                <div class="input_container half"><input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>"></div>
             </div>
         </div>
-        
-<?php while($mb->have_fields('address',1)): ?>
-    <div class="row">
-        <div class="cell">
-        <?php $metabox->the_field('street'); ?>
-        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Street Address</label>
-        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_street" name="<?php $metabox->the_name(); ?>"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="cell">
-        <?php $metabox->the_field('city'); ?>
-        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">City</label>
-        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_city" name="<?php $metabox->the_name(); ?>"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="cell">
-        <?php $metabox->the_field('state'); ?>
-        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">State</label>
-        <div class="input_container">
-            <select id="_location_state" name="<?php $metabox->the_name(); ?>">
-                <option value="">--SELECT--</option>
-                <?php foreach($states AS $k =>$v){ ?>
-                    <option value="<?php print $v; ?>"<?php print $metabox->get_the_value()==$v?' SELECTED':''?>><?php print $v; ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="cell">
-        <?php $metabox->the_field('zip'); ?>
-        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Zip Code</label>
-        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_zip" name="<?php $metabox->the_name(); ?>"></div>
-        </div>
-    </div>
-<?php endwhile; ?>
-    <div class="row">
-        <div class="cell">
-            <hr />
-       </div>
-    </div>
         <div class="row">
             <div class="cell">
-                <?php $metabox->the_field('event_datestamp'); ?>
-                <input type="hidden" class="datestamp" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
-                <?php $metabox->the_field('event_date'); ?>
-                <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Event Date</label>
-                <div class="input_container">
-                    <input type="text" class="datepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
-                </div>
-            </div>
-        </div>   
-        <div class="row">
-            <div class="cell">
-            <?php $metabox->the_field('event_start_time'); ?>
-                <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Event Times</label>
-                <div class="input_container"><input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
-                    to 
+                <?php $metabox->the_field('event_end_datestamp'); ?>
+                <input type="hidden" class="end_datestamp datestamp" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                <label>Event End</label>
+                <?php $metabox->the_field('event_end_date'); ?>
+                <div class="input_container half"><input type="text" class="datepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>"></div>
                 <?php $metabox->the_field('event_end_time'); ?>
-                <input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
-                </div>
-            </div>    
+                <div class="input_container half"><input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                
+            </div>
         </div>
     </div>
 </div>
+<script>
+jQuery(function($){
+    $( ".datepicker" ).datepicker({
+    onSelect : function(dateText, inst)
+    {
+        var epoch = $.datepicker.formatDate('@', $(this).datepicker('getDate')) / 1000;
+        $(this).parents('.cell').find('.datestamp').val(epoch);
+    }
+    });
+    $('.timepicker').timepicker({ 'scrollDefaultNow': true });
+});
+
+</script>

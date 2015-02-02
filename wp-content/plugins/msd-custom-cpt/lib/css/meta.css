@@ -95,6 +95,9 @@
   width: 98%;
   float: none;
 }
+ .input_container.half{
+ 	width: 42%;
+}
 .meta_control textarea,
 .meta_control input[type='text'],
 .meta_control select,
@@ -169,3 +172,6 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
   background: #f2f2f2;
 }
+.custom-combobox{position:relative;display:inline-block}
+.custom-combobox-toggle{position:absolute;top:0;bottom:0;margin-left:-1px;padding:0;*height:1.7em;*top:.1em}
+.custom-combobox-input{margin:0;padding:.3em}
