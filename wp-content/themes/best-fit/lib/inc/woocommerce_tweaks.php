@@ -1,5 +1,8 @@
 <?php
-
+add_filter('woocommerce_subcategory_count_html','msdlab_remove_count');
+function msdlab_remove_count($count){
+    //ts_data($count);
+}
 add_filter('get_product_search_form','msdlab_product_search_form');
 function msdlab_product_search_form($content){
     $content = preg_replace('@value="Search"@i','value="&#xF002;"',$content);

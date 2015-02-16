@@ -2,12 +2,13 @@
 add_action('genesis_footer','msdlab_show_actions');
 function msdlab_show_actions(){
     global $wp_filter;
-    $tag = $_GET['tag'];
+    //$tag = $_GET['tag'];
+    //$tag = 'woocommerce_subcategory_count_html';
     if($tag){
         ts_var( $wp_filter[$tag] );
     }
     //ts_var($wp_filter['wp']);
-}
+} 
 
 /*
 * A useful troubleshooting function. Displays arrays in an easy to follow format in a textarea.
