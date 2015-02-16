@@ -178,13 +178,31 @@
     li.product{
       a{
         position: relative;
-        overflow: hidden;
-        max-height: 290px;
-        img{
+        .img-wrap{
+          max-width: 251px;
+          max-height: 251px;
+          overflow: hidden;
+          img{}
         }
         h3{
           background-color: white;
         }
+      }
+    }
+  }
+  #content{
+    div.product{
+      .woocommerce-tabs{
+        width: 48%; 
+        float: right;
+        clear: none;
+      }
+    }
+  }
+  .related, .upsells{
+    ul.products{
+      li.product{
+        width: 22%;
       }
     }
   }

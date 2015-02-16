@@ -5,12 +5,31 @@ function msdlab_product_search_form($content){
     $content = preg_replace('@value="Search"@i','value="&#xF002;"',$content);
     return $content;
 }
-
-function woocommerce_output_related_products() {
-woocommerce_related_products(4,2); // Display 4 products in rows of 2
+add_filter('woocommerce_output_related_products_args','msdlab_output_related_products_args');
+function msdlab_output_related_products_args($defaults) {
+    $args = array(
+            'posts_per_page' => 4,
+            'columns' => 4,
+            'orderby' => 'rand'
+        );
+    return wp_parse_args( $args, $defaults );
 }
 
+add_action('woocommerce_before_shop_loop_item_title','msdlab_add_imgwrap_open',5);
+add_action('woocommerce_before_shop_loop_item_title','msdlab_add_imgwrap_close',20);
+add_action('woocommerce_before_subcategory_title','msdlab_add_imgwrap_open',5);
+add_action('woocommerce_before_subcategory_title','msdlab_add_imgwrap_close',20);
 
+if( ! function_exists('msdlab_add_imgwrap_open')){
+    function msdlab_add_imgwrap_open(){
+        print '<div class="img-wrap">';
+    }
+}
+if( ! function_exists('msdlab_add_imgwrap_close')){
+    function msdlab_add_imgwrap_close(){
+        print '</div>';
+    }
+}
 
 if ( ! function_exists( 'woocommerce_subcategory_thumbnail' ) ) {
 

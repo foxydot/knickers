@@ -6993,11 +6993,23 @@ Site Footer
 }
 .woocommerce ul.products li.product a {
   position: relative;
+}
+.woocommerce ul.products li.product a .img-wrap {
+  max-width: 251px;
+  max-height: 251px;
   overflow: hidden;
-  max-height: 290px;
 }
 .woocommerce ul.products li.product a h3 {
   background-color: white;
+}
+.woocommerce #content div.product .woocommerce-tabs {
+  width: 48%;
+  float: right;
+  clear: none;
+}
+.woocommerce .related ul.products li.product,
+.woocommerce .upsells ul.products li.product {
+  width: 22%;
 }
 /*
 Responsive Nav 
