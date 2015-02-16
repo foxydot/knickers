@@ -4,6 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.1.0
  */
 global $woocommerce, $product;
@@ -13,11 +14,29 @@ if ( ! defined( 'ABSPATH' ) )
 
 if ( ! comments_open() )
 	return;
+=======
+ * @version     2.3.2
+ */
+global $product;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( ! comments_open() ) {
+	return;
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <div id="reviews">
 	<div id="comments">
 		<h2><?php
+<<<<<<< HEAD
 			if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' && ( $count = $product->get_rating_count() ) )
+=======
+			if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' && ( $count = $product->get_review_count() ) )
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				printf( _n( '%s review for %s', '%s reviews for %s', $count, 'woocommerce' ), $count, get_the_title() );
 			else
 				_e( 'Reviews', 'woocommerce' );
@@ -94,4 +113,8 @@ if ( ! comments_open() )
 	<?php endif; ?>
 
 	<div class="clear"></div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

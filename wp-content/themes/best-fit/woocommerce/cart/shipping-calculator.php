@@ -7,21 +7,40 @@
  * @version     2.0.8
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce;
 
 if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->needs_shipping() )
 	return;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->needs_shipping() ) {
+	return;
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
+<<<<<<< HEAD
 <form class="shipping_calculator" action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 	<h2><a href="#" class="shipping-calculator-button"><?php _e( 'Calculate Shipping', 'woocommerce' ); ?></a></h2>
 
 	<section class="shipping-calculator-form">
+=======
+<form class="woocommerce-shipping-calculator" action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
+
+	<p><a href="#" class="shipping-calculator-button"><?php _e( 'Calculate Shipping', 'woocommerce' ); ?></a></p>
+
+	<section class="shipping-calculator-form" style="display:none;">
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 		<p class="form-row form-row-wide">
 			<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
@@ -88,4 +107,8 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
 	</section>
 </form>
 
+<<<<<<< HEAD
 <?php do_action( 'woocommerce_after_shipping_calculator' ); ?>
+=======
+<?php do_action( 'woocommerce_after_shipping_calculator' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

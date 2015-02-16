@@ -7,7 +7,13 @@
  * @version     2.1.7
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 global $product, $post;
 
@@ -20,7 +26,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		<tbody>
 			<?php
 				foreach ( $grouped_products as $product_id ) :
+<<<<<<< HEAD
 					$product = get_product( $product_id );
+=======
+					$product = wc_get_product( $product_id );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 					$post    = $product->post;
 					setup_postdata( $post );
 					?>
@@ -48,8 +58,15 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 							<?php
 								echo $product->get_price_html();
 
+<<<<<<< HEAD
 								if ( ( $availability = $product->get_availability() ) && $availability['availability'] )
 									echo apply_filters( 'woocommerce_stock_html', '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>', $availability['availability'] );
+=======
+								if ( $availability = $product->get_availability() ) {
+									$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
+									echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+								}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 							?>
 						</td>
 					</tr>
@@ -58,7 +75,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 				// Reset to parent grouped product
 				$post    = $parent_product_post;
+<<<<<<< HEAD
 				$product = get_product( $parent_product_post->ID );
+=======
+				$product = wc_get_product( $parent_product_post->ID );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				setup_postdata( $parent_product_post );
 			?>
 		</tbody>
@@ -77,4 +98,8 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php endif; ?>
 </form>
 
+<<<<<<< HEAD
 <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
+=======
+<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

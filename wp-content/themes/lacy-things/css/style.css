@@ -2521,17 +2521,29 @@ ul.bannerlink li.gift-cert1 a {
 .home .home-widgets .home-top .widget a {
   color: #ffffff;
 }
+<<<<<<< HEAD
+.home .home-widgets .home-top.home-right .widget.first-child {
+  padding: 20px 100px 20px 20px;
+  background-image: url(../images/shopping_bags.png);
+}
+.home .home-widgets .home-top.home-right .widget.first-child .widget-title {
+=======
 .home .home-widgets .home-top.home-left .widget {
   padding: 20px 100px 20px 20px;
   background-image: url(../images/shopping_bags.png);
 }
 .home .home-widgets .home-top.home-left .widget .widget-title {
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
   color: #ffffff;
   text-transform: lowercase;
   font-family: 'Lovers Quarrel', cursive;
   font-size: 36pt;
 }
+<<<<<<< HEAD
+.home .home-widgets .home-top.home-right .widget.last-child {
+=======
 .home .home-widgets .home-top.home-right .widget {
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
   background-image: url(../images/twitterlogo.png);
 }
 .woocommerce .related ul li.product,

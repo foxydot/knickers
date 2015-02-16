@@ -9,9 +9,16 @@
  * @version     2.1.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php do_action( 'woocommerce_before_mini_cart' ); ?>
@@ -30,6 +37,7 @@ global $woocommerce;
 					$product_name  = apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
 					$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 					$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+<<<<<<< HEAD
 
 					?>
 					<li>
@@ -37,6 +45,18 @@ global $woocommerce;
 							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name; ?>
 						</a>
 
+=======
+					?>
+					<li>
+						<?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key ); ?>
+						<?php if ( ! $_product->is_visible() ) : ?>
+							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name; ?>
+						<?php else : ?>
+							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
+								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name; ?>
+							</a>
+						<?php endif; ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 
 						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
@@ -67,4 +87,8 @@ global $woocommerce;
 
 <?php endif; ?>
 
+<<<<<<< HEAD
 <?php do_action( 'woocommerce_after_mini_cart' ); ?>
+=======
+<?php do_action( 'woocommerce_after_mini_cart' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

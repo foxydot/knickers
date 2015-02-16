@@ -7,7 +7,13 @@
  * @version     2.0.14
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 global $post, $woocommerce, $product;
 
@@ -35,7 +41,11 @@ global $post, $woocommerce, $product;
 
 		} else {
 
+<<<<<<< HEAD
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="Placeholder" />', wc_placeholder_img_src() ), $post->ID );
+=======
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 		}
 	?>

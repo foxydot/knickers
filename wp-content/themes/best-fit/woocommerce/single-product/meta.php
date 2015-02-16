@@ -7,12 +7,22 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 global $post, $product;
 
 $cat_count = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
 $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <div class="product_meta">
 
@@ -30,4 +40,8 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

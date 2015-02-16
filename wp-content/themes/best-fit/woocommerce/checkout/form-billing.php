@@ -7,7 +7,15 @@
  * @version     2.1.2
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+/** @global WC_Checkout $checkout */
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <div class="woocommerce-billing-fields">
 	<?php if ( WC()->cart->ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
@@ -63,4 +71,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 
 	<?php endif; ?>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

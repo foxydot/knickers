@@ -4,12 +4,22 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+=======
+ * @version     2.2.6
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php wc_print_notices(); ?>
@@ -43,7 +53,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<p class="form-row">
 				<?php wp_nonce_field( 'woocommerce-login' ); ?>
+<<<<<<< HEAD
 				<input type="submit" class="button" name="login" value="<?php _e( 'Login', 'woocommerce' ); ?>" /> 
+=======
+				<input type="submit" class="button" name="login" value="<?php _e( 'Login', 'woocommerce' ); ?>" />
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				<label for="rememberme" class="inline">
 					<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
@@ -83,7 +97,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				<p class="form-row form-row-wide">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 					<input type="password" class="input-text" name="password" id="reg_password" />
@@ -92,13 +110,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 
 			<!-- Spam Trap -->
+<<<<<<< HEAD
 			<div style="left:-999em; position:absolute;"><label for="trap"><?php _e( 'Anti-spam', 'woocommerce' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
+=======
+			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'woocommerce' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 			<?php do_action( 'woocommerce_register_form' ); ?>
 			<?php do_action( 'register_form' ); ?>
 
 			<p class="form-row">
+<<<<<<< HEAD
 				<?php wp_nonce_field( 'woocommerce-register', 'register' ); ?>
+=======
+				<?php wp_nonce_field( 'woocommerce-register' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				<input type="submit" class="button" name="register" value="<?php _e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 

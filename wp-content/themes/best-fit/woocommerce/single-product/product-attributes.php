@@ -18,6 +18,10 @@ $alt        = 1;
 $attributes = $product->get_attributes();
 
 ob_start();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <table class="shop_attributes">
 
@@ -64,11 +68,19 @@ ob_start();
 			?></td>
 		</tr>
 	<?php endforeach; ?>
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 </table>
 <?php
 if ( $has_row ) {
 	echo ob_get_clean();
 } else {
 	ob_end_clean();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

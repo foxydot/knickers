@@ -7,7 +7,13 @@
  * @version 	2.1.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 ?>
 <dl class="variation">

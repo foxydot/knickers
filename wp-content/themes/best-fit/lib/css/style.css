@@ -6991,6 +6991,29 @@ Site Footer
   height: auto;
   max-height: 1000px;
 }
+<<<<<<< HEAD
+=======
+.woocommerce ul.products li.product a {
+  position: relative;
+}
+.woocommerce ul.products li.product a .img-wrap {
+  max-width: 251px;
+  max-height: 251px;
+  overflow: hidden;
+}
+.woocommerce ul.products li.product a h3 {
+  background-color: white;
+}
+.woocommerce #content div.product .woocommerce-tabs {
+  width: 48%;
+  float: right;
+  clear: none;
+}
+.woocommerce .related ul.products li.product,
+.woocommerce .upsells ul.products li.product {
+  width: 22%;
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 /*
 Responsive Nav 
 ---------------------------------------------------------------------------------------------------- */

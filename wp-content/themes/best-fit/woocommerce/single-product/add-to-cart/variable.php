@@ -2,6 +2,7 @@
 /**
  * Variable product add to cart
  *
+<<<<<<< HEAD
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     2.1.0
@@ -10,6 +11,18 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce, $product, $post;
+=======
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 2.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+global $product, $post;
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
@@ -20,8 +33,13 @@ global $woocommerce, $product, $post;
 			<tbody>
 				<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
 					<tr>
+<<<<<<< HEAD
 						<td class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
 						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>">
+=======
+						<td class="label"><label for="<?php echo sanitize_title( $name ); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
+						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>" data-attribute_name="attribute_<?php echo sanitize_title( $name ); ?>">
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 							<option value=""><?php echo __( 'Choose an option', 'woocommerce' ) ?>&hellip;</option>
 							<?php
 								if ( is_array( $options ) ) {
@@ -37,6 +55,7 @@ global $woocommerce, $product, $post;
 									// Get terms if this is a taxonomy - ordered
 									if ( taxonomy_exists( $name ) ) {
 
+<<<<<<< HEAD
 										$orderby = wc_attribute_orderby( $name );
 
 										switch ( $orderby ) {
@@ -59,6 +78,17 @@ global $woocommerce, $product, $post;
 
 											echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $selected_value ), sanitize_title( $term->slug ), false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
 										}
+=======
+										$terms = wc_get_product_terms( $post->ID, $name, array( 'fields' => 'all' ) );
+
+										foreach ( $terms as $term ) {
+											if ( ! in_array( $term->slug, $options ) ) {
+												continue;
+											}
+											echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $selected_value ), sanitize_title( $term->slug ), false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
+										}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 									} else {
 
 										foreach ( $options as $option ) {
@@ -69,8 +99,14 @@ global $woocommerce, $product, $post;
 								}
 							?>
 						</select> <?php
+<<<<<<< HEAD
 							if ( sizeof( $attributes ) == $loop )
 								echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
+=======
+							if ( sizeof( $attributes ) === $loop ) {
+								echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
+							}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 						?></td>
 					</tr>
 		        <?php endforeach;?>
@@ -91,7 +127,11 @@ global $woocommerce, $product, $post;
 
 			<input type="hidden" name="add-to-cart" value="<?php echo $product->id; ?>" />
 			<input type="hidden" name="product_id" value="<?php echo esc_attr( $post->ID ); ?>" />
+<<<<<<< HEAD
 			<input type="hidden" name="variation_id" value="" />
+=======
+			<input type="hidden" name="variation_id" class="variation_id" value="" />
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 			<?php do_action( 'woocommerce_after_single_variation' ); ?>
 		</div>

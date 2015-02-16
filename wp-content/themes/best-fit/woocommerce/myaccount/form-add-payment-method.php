@@ -8,8 +8,14 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
     exit;
 }
+=======
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <form id="add_payment_method" method="post">
 	<div id="payment">

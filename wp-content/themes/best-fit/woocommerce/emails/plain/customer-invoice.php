@@ -4,6 +4,7 @@
  *
  * @author		WooThemes
  * @package		WooCommerce/Templates/Emails/Plain
+<<<<<<< HEAD
  * @version		2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -11,6 +12,18 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 echo $email_heading . "\n\n";
 
 if ( $order->status == 'pending' )
+=======
+ * @version		2.2.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+echo $email_heading . "\n\n";
+
+if ( $order->has_status( 'pending' ) )
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 	echo sprintf( __( 'An order has been created for you on %s. To pay for this order please use the following link: %s', 'woocommerce' ), get_bloginfo( 'name' ), $order->get_checkout_payment_url() ) . "\n\n";
 
 echo "****************************************************\n\n";
@@ -24,7 +37,11 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text )
 
 echo "\n";
 
+<<<<<<< HEAD
 switch ( $order->status ) {
+=======
+switch ( $order->get_status() ) {
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 	case "completed" :
 		echo $order->email_order_items_table( $order->is_download_permitted(), false, true, '', '', true );
 	break;
@@ -48,4 +65,8 @@ echo "\n****************************************************\n\n";
 
 do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
 
+<<<<<<< HEAD
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+=======
+echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

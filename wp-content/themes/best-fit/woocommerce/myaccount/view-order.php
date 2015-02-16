@@ -2,6 +2,7 @@
 /**
  * View Order
  *
+<<<<<<< HEAD
  * Shows the details of a particular order on the account page 
  *
  * @author    WooThemes
@@ -12,11 +13,28 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+=======
+ * Shows the details of a particular order on the account page
+ *
+ * @author    WooThemes
+ * @package   WooCommerce/Templates
+ * @version   2.2.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php wc_print_notices(); ?>
 
+<<<<<<< HEAD
 <p class="order-info"><?php printf( __( 'Order <mark class="order-number">%s</mark> was placed on <mark class="order-date">%s</mark> and is currently <mark class="order-status">%s</mark>.', 'woocommerce' ), $order->get_order_number(), date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ), __( $status->name, 'woocommerce' ) ); ?></p>
+=======
+<p class="order-info"><?php printf( __( 'Order #<mark class="order-number">%s</mark> was placed on <mark class="order-date">%s</mark> and is currently <mark class="order-status">%s</mark>.', 'woocommerce' ), $order->get_order_number(), date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ), wc_get_order_status_name( $order->get_status() ) ); ?></p>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 <?php if ( $notes = $order->get_customer_order_notes() ) :
 	?>
@@ -40,4 +58,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 endif;
 
+<<<<<<< HEAD
 do_action( 'woocommerce_view_order', $order_id );
+=======
+do_action( 'woocommerce_view_order', $order_id );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

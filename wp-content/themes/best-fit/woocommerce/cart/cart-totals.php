@@ -4,10 +4,20 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+ * @version     2.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <div class="cart_totals <?php if ( WC()->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?>">
 
@@ -22,7 +32,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
+<<<<<<< HEAD
 		<?php foreach ( WC()->cart->get_coupons( 'cart' ) as $code => $coupon ) : ?>
+=======
+		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 			<tr class="cart-discount coupon-<?php echo esc_attr( $code ); ?>">
 				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
 				<td><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
@@ -62,6 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<?php endif; ?>
 		<?php endif; ?>
 
+<<<<<<< HEAD
 		<?php foreach ( WC()->cart->get_coupons( 'order' ) as $code => $coupon ) : ?>
 			<tr class="order-discount coupon-<?php echo esc_attr( $code ); ?>">
 				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
@@ -69,6 +84,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			</tr>
 		<?php endforeach; ?>
 
+=======
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 		<tr class="order-total">
@@ -92,6 +109,18 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		?></small></p>
 	<?php endif; ?>
 
+<<<<<<< HEAD
 	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
 
 </div>
+=======
+	<div class="wc-proceed-to-checkout">
+
+		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+
+	</div>
+
+	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
+
+</div>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

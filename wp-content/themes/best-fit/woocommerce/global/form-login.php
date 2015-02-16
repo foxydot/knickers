@@ -7,10 +7,21 @@
  * @version     2.1.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if ( is_user_logged_in() ) 
 	return;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( is_user_logged_in() ) {
+	return;
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <form method="post" class="login" <?php if ( $hidden ) echo 'style="display:none;"'; ?>>
 
@@ -46,4 +57,8 @@ if ( is_user_logged_in() )
 
 	<?php do_action( 'woocommerce_login_form_end' ); ?>
 
+<<<<<<< HEAD
 </form>
+=======
+</form>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

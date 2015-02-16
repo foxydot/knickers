@@ -110,7 +110,25 @@
         	$slidedeck = ob_get_contents();
         	ob_end_clean();
         	if($slidedeck != ''){
+<<<<<<< HEAD
+        	    print '<div class="row home-widgets"><div class="col-sm-6 home-left home-top">';
         		print $slidedeck;
+                ?>
+                </div>
+                    <div class="col-sm-6 home-right home-top">
+                        <?php if(!dynamic_sidebar('home-top-left')): ?>
+                            <a href="<?php print site_url('/shop'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/shop-now.jpg" alt="shop-now" /></a>
+                        <?php endif; ?>
+                        <div class="widget">
+                            <h3 class="widget-title">Something to <b>Tweet</b> About</h3>
+                            <?php echo do_shortcode("[tweetomatic title='' show_timestamp='true' show_powered_by='false' count='3']"); ?>
+                        </div>
+                  </div>
+              </div>
+                <?php
+=======
+        		print $slidedeck;
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
         	}elseif(function_exists('wp_content_slider')) { wp_content_slider(); }  ?>
     </div>
     <?php } ?>       

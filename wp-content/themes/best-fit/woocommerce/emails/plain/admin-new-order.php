@@ -6,11 +6,22 @@
  * @package 	WooCommerce/Templates/Emails/Plain
  * @version 	2.0.0
  */
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 echo $email_heading . "\n\n";
 
 echo sprintf( __( 'You have received an order from %s. Their order is as follows:', 'woocommerce' ), $order->billing_first_name . ' ' . $order->billing_last_name ) . "\n\n";
+=======
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+echo $email_heading . "\n\n";
+
+echo sprintf( __( 'You have received an order from %s. The order is as follows:', 'woocommerce' ), $order->billing_first_name . ' ' . $order->billing_last_name ) . "\n\n";
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 echo "****************************************************\n\n";
 
@@ -36,6 +47,7 @@ echo "\n****************************************************\n\n";
 
 do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
 
+<<<<<<< HEAD
 echo __( 'Customer details', 'woocommerce' ) . "\n";
 
 if ( $order->billing_email )
@@ -49,3 +61,10 @@ wc_get_template( 'emails/plain/email-addresses.php', array( 'order' => $order ) 
 echo "\n****************************************************\n\n";
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+=======
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text );
+
+echo "\n****************************************************\n\n";
+
+echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

@@ -9,7 +9,13 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 global $product, $woocommerce_loop;
 
@@ -65,6 +71,21 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 
 	</a>
 
+<<<<<<< HEAD
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 
 </li>
+=======
+	<?php
+
+		/**
+		 * woocommerce_after_shop_loop_item hook
+		 *
+		 * @hooked woocommerce_template_loop_add_to_cart - 10
+		 */
+		do_action( 'woocommerce_after_shop_loop_item' ); 
+
+	?>
+
+</li>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

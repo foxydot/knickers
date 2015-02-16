@@ -9,7 +9,14 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 
 <?php
@@ -62,6 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		 * woocommerce_after_single_product_summary hook
 		 *
 		 * @hooked woocommerce_output_product_data_tabs - 10
+<<<<<<< HEAD
+=======
+		 * @hooked woocommerce_upsell_display - 15
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 		 * @hooked woocommerce_output_related_products - 20
 		 */
 		do_action( 'woocommerce_after_single_product_summary' );

@@ -7,9 +7,17 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $product, $woocommerce, $woocommerce_loop;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+global $product, $woocommerce_loop;
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 $crosssells = WC()->cart->get_cross_sells();
 
@@ -51,4 +59,8 @@ if ( $products->have_posts() ) : ?>
 
 <?php endif;
 
+<<<<<<< HEAD
 wp_reset_query();
+=======
+wp_reset_query();
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

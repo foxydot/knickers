@@ -4,6 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.0.0
  */
 
@@ -14,6 +15,18 @@ global $woocommerce;
 if ( $order ) : ?>
 
 	<?php if ( in_array( $order->status, array( 'failed' ) ) ) : ?>
+=======
+ * @version     2.2.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( $order ) : ?>
+
+	<?php if ( $order->has_status( 'failed' ) ) : ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 		<p><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction.', 'woocommerce' ); ?></p>
 
@@ -33,11 +46,19 @@ if ( $order ) : ?>
 
 	<?php else : ?>
 
+<<<<<<< HEAD
 		<p><?php _e( 'Thank you. Your order has been received.', 'woocommerce' ); ?></p>
 
 		<ul class="order_details">
 			<li class="order">
 				<?php _e( 'Order:', 'woocommerce' ); ?>
+=======
+		<p><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+
+		<ul class="order_details">
+			<li class="order">
+				<?php _e( 'Order Number:', 'woocommerce' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				<strong><?php echo $order->get_order_number(); ?></strong>
 			</li>
 			<li class="date">
@@ -50,7 +71,11 @@ if ( $order ) : ?>
 			</li>
 			<?php if ( $order->payment_method_title ) : ?>
 			<li class="method">
+<<<<<<< HEAD
 				<?php _e( 'Payment method:', 'woocommerce' ); ?>
+=======
+				<?php _e( 'Payment Method:', 'woocommerce' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				<strong><?php echo $order->payment_method_title; ?></strong>
 			</li>
 			<?php endif; ?>
@@ -64,6 +89,12 @@ if ( $order ) : ?>
 
 <?php else : ?>
 
+<<<<<<< HEAD
 	<p><?php _e( 'Thank you. Your order has been received.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>
+=======
+	<p><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+
+<?php endif; ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

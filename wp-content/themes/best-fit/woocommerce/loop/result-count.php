@@ -9,9 +9,17 @@
  * @version     2.0.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce, $wp_query;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+global $wp_query;
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 if ( ! woocommerce_products_will_display() )
 	return;
@@ -29,7 +37,14 @@ if ( ! woocommerce_products_will_display() )
 	} elseif ( $total <= $per_page || -1 == $per_page ) {
 		printf( __( 'Showing all %d results', 'woocommerce' ), $total );
 	} else {
+<<<<<<< HEAD
 		printf( _x( 'Showing %1$d–%2$d of %3$d results', '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
 	}
 	?>
 </p>
+=======
+		printf( _x( 'Showing %1$d&ndash;%2$d of %3$d results', '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
+	}
+	?>
+</p>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

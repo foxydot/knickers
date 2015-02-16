@@ -4,10 +4,20 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.1.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+ * @version     2.2.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <div class="woocommerce-shipping-fields">
 	<?php if ( WC()->cart->needs_shipping_address() === true ) : ?>
@@ -15,7 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php
 			if ( empty( $_POST ) ) {
 
+<<<<<<< HEAD
 				$ship_to_different_address = get_option( 'woocommerce_ship_to_billing' ) === 'no' ? 1 : 0;
+=======
+				$ship_to_different_address = get_option( 'woocommerce_ship_to_destination' ) === 'shipping' ? 1 : 0;
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				$ship_to_different_address = apply_filters( 'woocommerce_ship_to_different_address_checked', $ship_to_different_address );
 
 			} else {

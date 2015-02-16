@@ -6,7 +6,14 @@
  * @package		WooCommerce/Templates/Emails/Plain
  * @version		2.0.0
  */
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 echo $email_heading . "\n\n";
 
@@ -35,6 +42,7 @@ echo "\n****************************************************\n\n";
 
 do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
 
+<<<<<<< HEAD
 echo __( 'Your details', 'woocommerce' ) . "\n\n";
 
 if ( $order->billing_email )
@@ -48,3 +56,10 @@ wc_get_template( 'emails/plain/email-addresses.php', array( 'order' => $order ) 
 echo "\n****************************************************\n\n";
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+=======
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text );
+
+echo "\n****************************************************\n\n";
+
+echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

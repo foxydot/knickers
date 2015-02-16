@@ -6,7 +6,14 @@
  * @package 	WooCommerce/Templates/Emails/Plain
  * @version     2.0.0
  */
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 echo $email_heading . "\n\n";
 
@@ -19,4 +26,8 @@ echo sprintf( __( 'You can access your account area to view your orders and chan
 
 echo "\n****************************************************\n\n";
 
+<<<<<<< HEAD
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+=======
+echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

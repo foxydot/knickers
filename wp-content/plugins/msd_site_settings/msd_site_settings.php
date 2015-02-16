@@ -2,7 +2,11 @@
 /*
 Plugin Name: MSD Site Settings
 Description: Provides settings panel for several social/address options and widgets/shortcodes/functions for display.
+<<<<<<< HEAD
+Version: 0.3
+=======
 Version: 0.2
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 Author: Catherine M OBrien Sandrick (CMOS)
 Author URI: http://msdlab.com/biological-assets/catherine-obrien-sandrick/
 License: GPL v2
@@ -12,7 +16,12 @@ class MSDSocial{
 	private $the_path;
 	private $the_url;
 	public $icon_size;
+<<<<<<< HEAD
+	function MSDSocial(){$this->__construct();}
+    function __construct(){
+=======
 	function MSDSocial(){
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		$this->the_path = plugin_dir_path(__FILE__);
 		$this->the_url = plugin_dir_url(__FILE__);
 		$this->icon_size = get_option('msdsocial_icon_size')?get_option('msdsocial_icon_size'):'0';
@@ -58,12 +67,25 @@ class MSDSocial{
 
 //contact information
 function get_bizname(){
+<<<<<<< HEAD
+	$ret = (get_option('msdsocial_biz_name')!='')?get_option('msdsocial_biz_name'):get_bloginfo('name');
+=======
 	$ret .= (get_option('msdsocial_biz_name')!='')?get_option('msdsocial_biz_name'):get_bloginfo('name');
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 	return $ret;
 }
 function get_address(){
 	if((get_option('msdsocial_street')!='') || (get_option('msdsocial_city')!='') || (get_option('msdsocial_state')!='') || (get_option('msdsocial_zip')!='')) {
 		$ret = '<address itemscope itemtype="http://schema.org/LocalBusiness">';
+<<<<<<< HEAD
+			$ret .= (get_option('msdsocial_street')!='')?'<span itemprop="streetAddress" class="msdsocial_street">'.get_option('msdsocial_street').'</span> ':'';
+			$ret .= (get_option('msdsocial_street2')!='')?'<span itemprop="streetAddress" class="msdsocial_street_2">'.get_option('msdsocial_street2').'</span> ':'';
+			$ret .= (get_option('msdsocial_city')!='')?'<span itemprop="addressLocality" class="msdsocial_city">'.get_option('msdsocial_city').'</span>, ':'';
+			$ret .= (get_option('msdsocial_state')!='')?'<span itemprop="addressRegion" class="msdsocial_state">'.get_option('msdsocial_state').'</span> ':'';
+			$ret .= (get_option('msdsocial_zip')!='')?'<span itemprop="postalCode" class="msdsocial_zip">'.get_option('msdsocial_zip').'</span> ':'';
+		$ret .= '</address>';
+		  return $ret;
+=======
 			$ret .= (get_option('msdsocial_street')!='')?'<span itemprop="streetAddress">'.get_option('msdsocial_street').'</span> ':'';
 			$ret .= (get_option('msdsocial_street2')!='')?'<span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> ':'';
 			$ret .= (get_option('msdsocial_city')!='')?'<span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, ':'';
@@ -71,6 +93,7 @@ function get_address(){
 			$ret .= (get_option('msdsocial_zip')!='')?'<span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> ':'';
 		$ret .= '</address>';
 		return $ret;
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		} else {
 			return false;
 		} 
@@ -78,6 +101,10 @@ function get_address(){
 
 function get_digits($dowrap = TRUE,$sep = " | "){
         $sepsize = count($sep);
+<<<<<<< HEAD
+        $phone = $tollfree = false;
+=======
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		if((get_option('msdsocial_phone')!='') || (get_option('msdsocial_tollfree')!='') || (get_option('msdsocial_fax')!='')) {
 		    if((get_option('msdsocial_tracking_phone')!='')){
 		        if(wp_is_mobile()){
@@ -297,5 +324,8 @@ function requireDir($dir){
 }
 	//end of class
 }
+<<<<<<< HEAD
+=======
 global $msd_social;
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 $msd_social = new MSDSocial();

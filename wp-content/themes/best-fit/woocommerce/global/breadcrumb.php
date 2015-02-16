@@ -4,6 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     1.6.4
  */
 
@@ -205,3 +206,39 @@ if ( ( ! is_home() && ! is_front_page() && ! ( is_post_type_archive() && get_opt
 	echo $wrap_after;
 
 }
+=======
+ * @version     2.3.0
+ * @see         woocommerce_breadcrumb()
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+
+<?php if ( $breadcrumb ) : ?>
+
+	<?php echo $wrap_before; ?>
+
+	<?php foreach ( $breadcrumb as $key => $crumb ) : ?>
+
+		<?php echo $before; ?>
+
+		<?php if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) : ?>
+			<?php echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>'; ?>
+		<?php else : ?>
+			<?php echo esc_html( $crumb[0] ); ?>
+		<?php endif; ?>
+
+		<?php echo $after; ?>
+
+		<?php if ( sizeof( $breadcrumb ) !== $key + 1 ) : ?>
+			<?php echo $delimiter; ?>
+		<?php endif; ?>
+
+	<?php endforeach; ?>
+
+	<?php echo $wrap_after; ?>
+
+<?php endif; ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

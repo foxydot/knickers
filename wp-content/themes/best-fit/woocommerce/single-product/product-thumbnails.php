@@ -4,21 +4,37 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.0.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+ * @version     2.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 global $post, $product, $woocommerce;
 
 $attachment_ids = $product->get_gallery_attachment_ids();
 
 if ( $attachment_ids ) {
+<<<<<<< HEAD
 	?>
 	<div class="thumbnails"><?php
 
 		$loop = 0;
 		$columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
+=======
+	$loop 		= 0;
+	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
+	?>
+	<div class="thumbnails <?php echo 'columns-' . $columns; ?>"><?php
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 		foreach ( $attachment_ids as $attachment_id ) {
 
@@ -46,4 +62,8 @@ if ( $attachment_ids ) {
 
 	?></div>
 	<?php
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

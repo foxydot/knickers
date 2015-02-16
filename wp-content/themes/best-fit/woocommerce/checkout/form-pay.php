@@ -7,9 +7,16 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce;
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <form id="order_review" method="post">
 
@@ -21,6 +28,7 @@ global $woocommerce;
 				<th class="product-total"><?php _e( 'Totals', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
+<<<<<<< HEAD
 		<tfoot>
 		<?php
 			if ( $totals = $order->get_order_item_totals() ) foreach ( $totals as $total ) :
@@ -33,6 +41,8 @@ global $woocommerce;
 			endforeach;
 		?>
 		</tfoot>
+=======
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 		<tbody>
 			<?php
 			if ( sizeof( $order->get_items() ) > 0 ) :
@@ -47,6 +57,21 @@ global $woocommerce;
 			endif;
 			?>
 		</tbody>
+<<<<<<< HEAD
+=======
+		<tfoot>
+		<?php
+			if ( $totals = $order->get_order_item_totals() ) foreach ( $totals as $total ) :
+				?>
+				<tr>
+					<th scope="row" colspan="2"><?php echo $total['label']; ?></th>
+					<td class="product-total"><?php echo $total['value']; ?></td>
+				</tr>
+				<?php
+			endforeach;
+		?>
+		</tfoot>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 	</table>
 
 	<div id="payment">
@@ -87,9 +112,15 @@ global $woocommerce;
 			<?php wp_nonce_field( 'woocommerce-pay' ); ?>
 			<?php
 				$pay_order_button_text = apply_filters( 'woocommerce_pay_order_button_text', __( 'Pay for order', 'woocommerce' ) );
+<<<<<<< HEAD
 				
 				echo apply_filters( 'woocommerce_pay_order_button_html', '<input type="submit" class="button alt" id="place_order" value="' . esc_attr( $pay_order_button_text ) . '" data-value="' . esc_attr( $pay_order_button_text ) . '" />' );
 			?>			
+=======
+
+				echo apply_filters( 'woocommerce_pay_order_button_html', '<input type="submit" class="button alt" id="place_order" value="' . esc_attr( $pay_order_button_text ) . '" data-value="' . esc_attr( $pay_order_button_text ) . '" />' );
+			?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 			<input type="hidden" name="woocommerce_pay" value="1" />
 		</div>
 

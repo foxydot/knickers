@@ -7,7 +7,13 @@
  * @version     2.0.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 // Load colours
 $base = get_option( 'woocommerce_email_base_color' );
@@ -65,4 +71,8 @@ $credit = "
             </table>
         </div>
     </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

@@ -9,6 +9,14 @@
  * @version     1.6.4
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 wc_get_template( 'archive-product.php' );
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+wc_get_template( 'archive-product.php' );
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1

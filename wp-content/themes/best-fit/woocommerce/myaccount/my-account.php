@@ -8,7 +8,11 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
+<<<<<<< HEAD
     exit;
+=======
+	exit; // Exit if accessed directly
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 }
 
 wc_print_notices(); ?>
@@ -18,7 +22,11 @@ wc_print_notices(); ?>
 	printf(
 		__( 'Hello <strong>%1$s</strong> (not %1$s? <a href="%2$s">Sign out</a>).', 'woocommerce' ) . ' ',
 		$current_user->display_name,
+<<<<<<< HEAD
 		wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) )
+=======
+		wc_get_endpoint_url( 'customer-logout', '', get_permalink( wc_get_page_id( 'myaccount' ) ) )
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 	);
 
 	printf( __( 'From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href="%s">edit your password and account details</a>.', 'woocommerce' ),

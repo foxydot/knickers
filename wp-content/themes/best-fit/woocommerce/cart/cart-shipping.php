@@ -6,9 +6,19 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
+<<<<<<< HEAD
  * @version     2.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+=======
+ * @version     2.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 ?>
 <tr class="shipping">
 	<th><?php
@@ -69,13 +79,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<?php if ( is_cart() ) : ?>
 
 				<?php echo apply_filters( 'woocommerce_cart_no_shipping_available_html',
+<<<<<<< HEAD
 					'<div class="woocommerce-info"><p>' . __( 'There doesn&lsquo;t seem to be any available shipping methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p></div>'
+=======
+					'<div class="woocommerce-info"><p>' . __( 'There don&lsquo;t seem to be available shipping methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p></div>'
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				); ?>
 
 			<?php else : ?>
 
 				<?php echo apply_filters( 'woocommerce_no_shipping_available_html',
+<<<<<<< HEAD
 					'<p>' . __( 'There doesn&lsquo;t seem to be any available shipping methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
+=======
+					'<p>' . __( 'There don&lsquo;t seem to be available shipping methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 				); ?>
 
 			<?php endif; ?>
@@ -93,5 +111,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				echo '<p class="woocommerce-shipping-contents"><small>' . __( 'Shipping', 'woocommerce' ) . ': ' . implode( ', ', $product_names ) . '</small></p>';
 			?>
 		<?php endif; ?>
+<<<<<<< HEAD
+=======
+
+		<?php if ( is_cart() ) : ?>
+			<?php woocommerce_shipping_calculator(); ?>
+		<?php endif; ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 	</td>
 </tr>

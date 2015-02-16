@@ -7,7 +7,15 @@
  * @version     2.0.0
  */
 
+<<<<<<< HEAD
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+=======
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
@@ -21,4 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 </p>
 <p></p>
 
+<<<<<<< HEAD
 <?php do_action( 'woocommerce_email_footer' ); ?>
+=======
+<?php do_action( 'woocommerce_email_footer' ); ?>
+>>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
