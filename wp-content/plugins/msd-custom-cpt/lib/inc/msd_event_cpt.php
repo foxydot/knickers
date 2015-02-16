@@ -312,6 +312,7 @@ if (!class_exists('MSDEventCPT')) {
         function custom_query( $query ) {
             if(!is_admin()){
                 $is_event = ($query->query_vars['event_type'])?TRUE:FALSE;
+                $post_types = get_post_types();
                 if($query->is_main_query() && $query->is_search){
                     $searchterm = $query->query_vars['s'];
                     // we have to remove the "s" parameter from the query, because it will prevent the posts from being found
@@ -321,11 +322,13 @@ if (!class_exists('MSDEventCPT')) {
                         $query->set('meta_value',$searchterm);
                         $query->set('meta_compare','LIKE');
                     };
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
+                    $post_types[] = $this->cpt;
+                    $query->set( 'post_type', $post_types );
                     ts_data($query);
                 }
                 elseif( $query->is_main_query() && $query->is_archive ) {
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
+                    $post_types[] = $this->cpt;
+                    $query->set( 'post_type', $post_types );
                 }
             }
         }           

@@ -6991,6 +6991,14 @@ Site Footer
   height: auto;
   max-height: 1000px;
 }
+.woocommerce ul.products li.product a {
+  position: relative;
+  overflow: hidden;
+  max-height: 290px;
+}
+.woocommerce ul.products li.product a h3 {
+  background-color: white;
+}
 /*
 Responsive Nav 
 ---------------------------------------------------------------------------------------------------- */
