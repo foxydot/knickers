@@ -7,7 +7,10 @@ get_header(); ?>
         <div id="primary">
             <div id="content" role="main">
                <?php remove_filter('widget_title','esc_html'); ?>
+<<<<<<< HEAD
                <?php /*
+=======
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
                 <div class="row home-widgets">
                     <div class="col-sm-6 home-left home-top">
                         <?php if(!dynamic_sidebar('home-top-left')): ?>
@@ -21,8 +24,11 @@ get_header(); ?>
                         </div>
                   </div>
                 </div>        
+<<<<<<< HEAD
                 * 
                 */ ?>
+=======
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
                 <img src="<?php bloginfo('template_url'); ?>/images/divider.jpg" alt="divider"  class="center" />
                 <div class="row home-widgets">
                     <div class="col-sm-6 home-left home-bottom">

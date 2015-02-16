@@ -110,6 +110,7 @@
         	$slidedeck = ob_get_contents();
         	ob_end_clean();
         	if($slidedeck != ''){
+<<<<<<< HEAD
         	    print '<div class="row home-widgets"><div class="col-sm-6 home-left home-top">';
         		print $slidedeck;
                 ?>
@@ -125,6 +126,9 @@
                   </div>
               </div>
                 <?php
+=======
+        		print $slidedeck;
+>>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
         	}elseif(function_exists('wp_content_slider')) { wp_content_slider(); }  ?>
     </div>
     <?php } ?>       
