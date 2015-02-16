@@ -312,10 +312,7 @@ if (!class_exists('MSDEventCPT')) {
         function custom_query( $query ) {
             if(!is_admin()){
                 $is_event = ($query->query_vars['event_type'])?TRUE:FALSE;
-<<<<<<< HEAD
-=======
                 $post_types = get_post_types();
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
                 if($query->is_main_query() && $query->is_search){
                     $searchterm = $query->query_vars['s'];
                     // we have to remove the "s" parameter from the query, because it will prevent the posts from being found
@@ -325,21 +322,14 @@ if (!class_exists('MSDEventCPT')) {
                         $query->set('meta_value',$searchterm);
                         $query->set('meta_compare','LIKE');
                     };
-<<<<<<< HEAD
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
-                    ts_data($query);
-                }
-                elseif( $query->is_main_query() && $query->is_archive ) {
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
-=======
+
                     $post_types[] = $this->cpt;
                     $query->set( 'post_type', $post_types );
-                    ts_data($query);
+                    //ts_data($query);
                 }
                 elseif( $query->is_main_query() && $query->is_archive ) {
                     $post_types[] = $this->cpt;
                     $query->set( 'post_type', $post_types );
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
                 }
             }
         }           

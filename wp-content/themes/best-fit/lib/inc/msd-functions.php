@@ -113,22 +113,16 @@ function get_topmost_parent($post_id){
 	}
 	return $parent_id;
 }
-<<<<<<< HEAD
-add_filter( 'the_content', 'msd_remove_msword_formatting' );
-=======
+
 //add_filter( 'the_content', 'msd_remove_msword_formatting' );
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 function msd_remove_msword_formatting($content){
 	global $allowedposttags;
 	$allowedposttags['span']['style'] = false;
 	$content = wp_kses($content,$allowedposttags);
 	return $content;
 }
-<<<<<<< HEAD
-add_action('init','msd_allow_all_embeds');
-=======
+
 //add_action('init','msd_allow_all_embeds');
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
 function msd_allow_all_embeds(){
 	global $allowedposttags;
 	$allowedposttags["iframe"] = array(

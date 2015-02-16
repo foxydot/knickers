@@ -110,35 +110,12 @@ if (!class_exists('MSDCustomCPT')) {
         	//get sub-packages
         	requireDir(plugin_dir_path(__FILE__).'/lib/inc');
            
-<<<<<<< HEAD
-            //here are some examples to get started with
-            /*if(class_exists('MSDLocationCPT')){
-                $this->location_class = new MSDLocationCPT();
-                $this->flushrules = TRUE;
-            }*/
-=======
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
+
             if(class_exists('MSDEventCPT')){
                 $this->event_class = new MSDEventCPT();
                 $this->flushrules = TRUE;
             }
-<<<<<<< HEAD
-            /*
-            if(class_exists('MSDProjectCPT')){
-                $this->project_class = new MSDProjectCPT();
-                $this->flushrules = TRUE;
-            }
-            if(class_exists('MSDClientCPT')){
-                $this->client_class = new MSDClientCPT();
-                $this->flushrules = TRUE;
-            }
-            if(class_exists('MSDTestimonialCPT')){
-                $this->testimonial_class = new MSDTestimonialCPT();
-                $this->flushrules = TRUE;
-            }*/
-=======
-            
->>>>>>> 5ec0834fd204a926bf216a4361cc6ea50af56fe1
+
             if($this->flushrules){
                 register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
                 register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
