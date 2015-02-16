@@ -14,16 +14,12 @@
 # Ignore everything in the root except the "assets" directory.
 /*
 !.gitignore
-<<<<<<< HEAD
 !assets/
-=======
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 !wp-content/
 !fonts/
 
 # Ignore everything in the "assets" directory, except the "plugins"
 # and "themes" directories.
-<<<<<<< HEAD
 assets/*
 !assets/plugins/
 !assets/themes/
@@ -38,29 +34,24 @@ wp-content/*
 assets/plugins/*
 !assets/plugins/msd*
 # !assets/plugins/my-directory-plugin/
-=======
 wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 
 # Ignore everything in the "plugins" directory, except the plugins you
 # specify (see the commented-out examples for hints on how to do this.)
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 wp-content/plugins/*
 !wp-content/plugins/msd*
 # !wp-content/plugins/my-directory-plugin/
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
-<<<<<<< HEAD
 assets/themes/twenty*
 assets/themes/genesis
 wp-content/themes/twenty*
 wp-content/themes/genesis
-=======
 !wp-content/themes/*
 !wp-content/themes/
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 
 .DS_Store
 .AppleDouble
@@ -77,10 +68,7 @@ Icon
 .Trashes
 *.pydevproject
 .project
-<<<<<<< HEAD
 config.codekit
-=======
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 .metadata
 bin/**
 tmp/**
