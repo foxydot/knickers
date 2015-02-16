@@ -12,15 +12,11 @@ class MSDConnected extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		extract($args);
-<<<<<<< HEAD
         extract($instance);
-=======
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		$title = apply_filters( 'widget_title', empty($instance['title']) ? '' : $instance['title'], $instance );
 		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
 		echo $before_widget;
 		if ( !empty( $title ) ) { print $before_title.$title.$after_title; } 
-<<<<<<< HEAD
         if ( !empty( $text )){ print '<div class="connected-text">'.$text.'</div>'; }
         if ( $form_id > 0 ){
             print '<div class="connected-form">';
@@ -82,18 +78,6 @@ class MSDConnected extends WP_Widget {
             $social = do_shortcode('[msd-social]');
             if( $social ){ print '<div class="connected-social">'.$social.'</div>'; }
         }	
-=======
-		?>
-		<p><?php echo $text; ?></p>
-		<?php do_shortcode('[msd-social]'); ?>
-	<div class="clear"></div>
-	<div id="digits">
-		<?php print (get_option('msdsocial_phone')!='')?'PHONE: '.get_option('msdsocial_phone').'<br /> ':''; ?>
-		<?php print (get_option('msdsocial_fax')!='')?'FAX: '.get_option('msdsocial_fax').'<br /> ':''; ?>
-		<?php print (get_option('msdsocial_email')!='')?'<a href="mailto:'.get_option('msdsocial_email').'">'.strtoupper(get_option('msdsocial_email')).'</a><br /> ':''; ?>
-	</div>
-		<?php 	
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		echo $after_widget;
 	}
 
@@ -105,14 +89,11 @@ class MSDConnected extends WP_Widget {
 		else
 			$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
 		
-<<<<<<< HEAD
         $instance['form_id'] = $new_instance['form_id'];
         $shows = array('address','phone','tollfree','fax','email','social');
         foreach($shows AS $s){
         $instance[$s] = $new_instance[$s];
         }
-=======
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 		return $instance;
 	}
 
@@ -123,7 +104,6 @@ class MSDConnected extends WP_Widget {
 ?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>	
-<<<<<<< HEAD
 		<textarea class="widefat" rows="5" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
         <?php if(class_exists('GFForms')){ ?>
             <p><label for="<?php echo $this->get_field_id('form_id'); ?>"><?php _e('Show form:'); ?></label>
@@ -149,9 +129,6 @@ class MSDConnected extends WP_Widget {
 
 
 
-=======
-		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 <?php
 	}
 }
