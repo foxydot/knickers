@@ -10,7 +10,6 @@
   color: #ffffff;
   display: block;
   float: left;
-<<<<<<< HEAD
   font-size: 1.4rem;
   text-align: center;
   width: 2em;
@@ -26,23 +25,6 @@
 }
 .social-media a:hover:before {
   opacity: 1;
-=======
-  font-size: 2rem;
-  text-align: center;
-  width: 30px;
-  padding: 0.5rem 0;
-  text-decoration: none;
-  text-indent: 0;
-  margin: 0;
-}
-.social-media a i.fa,
-.social-media a:hover i.fa {
-  color: #ffffff;
-  width: 2em;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
->>>>>>> ac88caf9f4ca63755d9ca84076d3897cbdde4feb
 }
 .social-media a.fa-facebook {
   background-color: #345aa1;
