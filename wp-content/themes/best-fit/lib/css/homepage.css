@@ -49,7 +49,10 @@
 #hp-top {
   display: block;
   min-height: 300px;
+  padding-bottom: 2rem;
   margin: 4rem auto 2rem;
+  border-bottom: double 4px #cccccc;
+  box-shadow: 0 2px 4px #999999;
 }
 #hp-top .carousel {
   margin: 0 auto;
@@ -108,7 +111,7 @@
   font-weight: 100;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0);
   height: 5rem;
-  background: #163559;
+  background: #121c00;
   opacity: 1;
   top: 170px;
   line-height: 1;
@@ -163,7 +166,7 @@
   background-color: #D3B883;
 }
 #hp-callout {
-  background: #163559;
+  background: #121c00;
   padding: 0.8rem 0;
 }
 #hp-callout .wrap .widget {
@@ -234,7 +237,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.6rem;
-  color: #163559;
+  color: #121c00;
 }
 #hp-callout-2 .gform_wrapper .gform_heading li.gfield,
 #hp-callout-2 .gform_wrapper .gform_body li.gfield {
@@ -356,9 +359,14 @@
   margin-right: 0;
 }
 #hp-footer .connected-social .social-media a.fa:hover {
-  background: #163559;
-  border-color: #163559;
+  background: #121c00;
+  border-color: #121c00;
   color: #ffffff;
+}
+#hp-footer-1 {
+  margin-top: 2rem;
+  border-top: double 4px #cccccc;
+  box-shadow: 0 -2px 4px #999999;
 }
 #hp-top .wrap:after,
 #hp-callout .wrap:after,

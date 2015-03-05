@@ -6,7 +6,10 @@
 #hp-top{
   display: block;
   min-height: 300px;
+  padding-bottom: 2rem;
   margin: 4rem auto 2rem;
+  border-bottom: double 4px @vltgrey;
+  box-shadow: 0 2px 4px @ltgrey;
   .carousel{
     margin: 0 auto;
     width: 100%;
@@ -61,7 +64,7 @@
       font-weight: 100; 
       text-shadow: 0 0 0 rgba(0,0,0,0);
       height: 5rem;
-      background: @dkblue;
+      background: @dkgreen;
       opacity: 1;
       top: 170px;
       line-height: 1;
@@ -128,7 +131,7 @@
   }
 }
 #hp-callout{
-  background: @dkblue;
+  background: @dkgreen;
   padding: 0.8rem 0;
   .wrap{
     .widget{
@@ -199,7 +202,7 @@
         text-transform: uppercase;
         font-weight: 700;
         font-size: 1.6rem;
-        color: @dkblue;
+        color: @dkgreen;
       }
       li.gfield{
         display: inline-block;
@@ -318,12 +321,17 @@
         margin-right: 0;
       }
       a.fa:hover{
-        background: @dkblue;
-        border-color: @dkblue;
+        background: @dkgreen;
+        border-color: @dkgreen;
         color: @white;
       }
     }
   }
+}
+#hp-footer-1{
+  margin-top: 2rem;
+  border-top: double 4px @vltgrey;
+  box-shadow: 0 -2px 4px @ltgrey;
 }
 #hp-top, #hp-callout,#hp-callout-2,#hp-footer{
   .wrap:after,.wrap:before{
