@@ -5955,7 +5955,7 @@ img.alignright,
 .widget-title {
   font-size: 18px;
   font-size: 1.8rem;
-  color: #121c00;
+  color: #548200;
   margin-top: 1rem;
 }
 .sidebar .widget-title a {
@@ -6714,7 +6714,7 @@ Sidebars
 Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 .footer-widgets {
-  background-color: #000000;
+  background-color: #999999;
   color: #ffffff;
   clear: both;
   padding: 0 0 16px;
@@ -7052,6 +7052,37 @@ Site Footer
 .woocommerce .related ul.products li.product,
 .woocommerce .upsells ul.products li.product {
   width: 22%;
+}
+.business-hours > .hours {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.business-hours > .hours:before,
+.business-hours > .hours:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.business-hours > .hours:after {
+  clear: both;
+}
+.business-hours > .hours:before,
+.business-hours > .hours:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.business-hours > .hours:after {
+  clear: both;
+}
+.business-hours > .hours .day,
+.business-hours > .hours .hours {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 /*
 Responsive Nav 

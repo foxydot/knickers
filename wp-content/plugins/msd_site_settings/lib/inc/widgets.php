@@ -7,7 +7,7 @@ class MSDConnected extends WP_Widget {
     function MSDConnected() {
 		$widget_ops = array('classname' => 'msd-connected', 'description' => __('Show social icons'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		$this->WP_Widget('connected', __('Connected'), $widget_ops, $control_ops);
+		$this->WP_Widget('connected', __('MSD Connected'), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -30,6 +30,7 @@ class MSDConnected extends WP_Widget {
                 print '<div class="connected-address">'.$address.'</div>';
             }
         }
+        
         if ( $phone ){
             $phone = '';
             if((get_option('msdsocial_tracking_phone')!='')){
@@ -74,6 +75,13 @@ class MSDConnected extends WP_Widget {
             $email = (get_option('msdsocial_email')!='')?'Email: <span itemprop="email"><a href="mailto:'.antispambot(get_option('msdsocial_email')).'">'.antispambot(get_option('msdsocial_email')).'</a></span> ':'';
             if ( $email ){ print '<div class="connected-email">'.$email.'</div>'; }
         }
+
+        if ( $additional_locations ){
+            $additional_locations = do_shortcode('[msd-additional-locations]'); 
+            if ( $additional_locations ){
+                print '<div class="connected-additional-locations">'.$additional_locations.'</div>';
+            }
+        }
         if ( $social ){
             $social = do_shortcode('[msd-social]');
             if( $social ){ print '<div class="connected-social">'.$social.'</div>'; }
@@ -90,7 +98,7 @@ class MSDConnected extends WP_Widget {
 			$instance['text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text']) ) ); // wp_filter_post_kses() expects slashed
 		
         $instance['form_id'] = $new_instance['form_id'];
-        $shows = array('address','phone','tollfree','fax','email','social');
+        $shows = array('address','additional_locations','phone','tollfree','fax','email','social');
         foreach($shows AS $s){
         $instance[$s] = $new_instance[$s];
         }
@@ -120,10 +128,15 @@ class MSDConnected extends WP_Widget {
                 ?>
             </select>
         <?php } ?>
-        <?php $shows = array('address','phone','tollfree','fax','email','social'); ?>
+        <?php $shows = array('address','additional_locations','phone','tollfree','fax','email','social'); ?>
+        <?php ?>
         <p>
-            <?php foreach($shows AS $s){ ?>
-            <input type="checkbox" name="<?php echo $this->get_field_name( $s ); ?>" id="<?php echo $this->get_field_id( $s ); ?>" <?php checked($instance[$s]); ?> value="1" /> <label for="<?php echo $this->get_field_id( $s ); ?>"><?php _e("Display ".$s); ?></label><br/>
+            <?php foreach($shows AS $s){
+                if($s == 'additional_locations' && get_option('msdsocial_num_locations')==0){
+                    continue;
+                } 
+                ?>
+            <input type="checkbox" name="<?php echo $this->get_field_name( $s ); ?>" id="<?php echo $this->get_field_id( $s ); ?>" <?php checked($instance[$s]); ?> value="1" /> <label for="<?php echo $this->get_field_id( $s ); ?>"><?php _e("Display ".str_replace('_',' ',$s)); ?></label><br/>
             <?php } ?>
         </p>
 
@@ -141,7 +154,7 @@ class MSDAddress extends WP_Widget {
     function MSDAddress() {
 		$widget_ops = array('classname' => 'msd-address', 'description' => __('Display addresses'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		$this->WP_Widget('address', __('Address'), $widget_ops, $control_ops);
+		$this->WP_Widget('address', __('MSD Address'), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -182,7 +195,7 @@ class MSDCopyright extends WP_Widget {
     function MSDCopyright() {
 		$widget_ops = array('classname' => 'msd-copyright', 'description' => __('Display copyright notice'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		$this->WP_Widget('copyright', __('Copyright'), $widget_ops, $control_ops);
+		$this->WP_Widget('copyright', __('MSD Copyright'), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -215,3 +228,79 @@ class MSDCopyright extends WP_Widget {
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("MSDCopyright");'));
+
+
+class MSDHours extends WP_Widget {
+    /** constructor */
+    function MSDHours() {
+        $widget_ops = array('classname' => 'msd-hours', 'description' => __('Display shop hours'));
+        $control_ops = array('width' => 400, 'height' => 350);
+        $this->WP_Widget('address', __('MSD Hours'), $widget_ops, $control_ops);
+    }
+
+    function widget( $args, $instance ) {
+        extract($args);
+        $title = apply_filters( 'widget_title', empty($instance['title']) ? '' : $instance['title'], $instance );
+        echo $before_widget;
+        if ( !empty( $title ) ) { print $before_title.$title.$after_title; } 
+        $days = array(
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+        );
+        foreach ($days as $day) {
+            $open = get_option('msdsocial_hours_'.strtolower($day).'_open');
+            $close = get_option('msdsocial_hours_'.strtolower($day).'_close');
+            $closed = $open==''||$close==''?FALSE:TRUE;
+            $hours[$day] = $closed?$open . ' to ' . $close:'CLOSED';
+        }
+        $prev = array();
+        foreach ($days as $day) {
+            if($hours[$day] != $prev['hours']){
+                if(isset($prev['hours'])){
+                    if(isset($prev['day'])){
+                        $ret .= ' - '.$prev['day'];
+                    }
+                    $ret .= '</span><span class="hours">'.$prev['hours'].'</span></div>
+';
+                }
+                $ret .= '<div class="hours '.$day.'"><span class="day">'.$day;
+                unset($prev['day']);
+            } else {
+                $prev['day'] = $day;
+            }
+            if($day == 'Saturday'){
+                if($hours[$day] == $prev['hours'] && isset($prev['day'])){
+                    $ret .= ' - '.$prev['day'];
+                }
+                $ret .= '</span><span class="hours">'.$hours[$day].'</span></div>
+';
+            }
+            $prev['hours'] = $hours[$day];
+        }
+        echo '<div class="business-hours">'.$ret.'</div>';
+        echo $after_widget;
+    }
+
+    function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+
+        return $instance;
+    }
+
+    function form( $instance ) {
+        $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+        $title = strip_tags($instance['title']);
+?>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p> 
+<?php
+    }
+}
+
+add_action('widgets_init', create_function('', 'return register_widget("MSDHours");'));
