@@ -6727,28 +6727,34 @@ Footer Widgets
   clear: both;
   visibility: hidden;
 }
+/*
 .footer-widgets-1,
 .footer-widgets-2 {
   width: 33%;
   margin-right: 3%;
 }
+
 .footer-widgets-3 {
   width: 25%;
 }
+
 .footer-widgets-1 {
   margin-right: 6%;
 }
+
 .footer-widgets-1,
 .footer-widgets-2 {
   margin-top: 40px;
   margin-top: 4rem;
   float: left;
 }
+
 .footer-widgets-3 {
   margin-top: 12px;
   margin-top: 1.2rem;
   float: right;
 }
+*/
 .footer-widgets a {
   color: #121c00;
 }
