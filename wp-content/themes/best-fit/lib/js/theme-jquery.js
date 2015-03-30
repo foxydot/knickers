@@ -34,8 +34,11 @@ jQuery(document).ready(function($) {
     $('*:nth-child(even)').addClass('even');
     $('*:nth-child(odd)').addClass('odd');
 	
-	var numwidgets = $('#footer-widgets div.widget').length;
-	$('#footer-widgets').addClass('cols-'+numwidgets);
+    var numwidgets = $('.footer-widgets section.widget').length;
+    $('.footer-widgets').addClass('cols-'+numwidgets);
+    var cols = 12/numwidgets;
+    $('.footer-widgets section.widget').addClass('col-sm-'+cols);
+    $('.footer-widgets section.widget').addClass('col-xs-12');
 	
 	//special for lifestyle
 	$('.ftr-menu ul.menu>li').after(function(){
