@@ -6183,6 +6183,36 @@ Site Header
   margin-top: 24px;
   margin-top: 2.4rem;
 }
+.search-form {
+  display: inline-block;
+  padding: 0;
+  margin-left: 1rem;
+  position: relative;
+  whitespace: nowrap;
+}
+.search-form input[type="search"] {
+  font-size: 1.4rem;
+  width: 25rem;
+  background: #ffffff;
+  padding: 0.6rem 2.4rem 0.6rem 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+.search-form input[type="submit"] {
+  font-family: FontAwesome;
+  background: transparent;
+  border: 0 none;
+  clip: auto;
+  color: #999999;
+  display: inline-block;
+  font-size: 1.2rem;
+  height: 18px;
+  line-height: 1;
+  text-align: center;
+  width: 18px;
+  right: 0.8rem;
+  top: 0.8rem;
+}
 /*Post HEader
  * 
  */
