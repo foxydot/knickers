@@ -378,11 +378,24 @@ if (!class_exists('MSDEventCPT')) {
                 } else {
                     $event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                 }
+                if($date_info->get_the_value('event_start_time')!='' && $date_info->get_the_value('event_end_time')!=''){
+                    if($date_info->get_the_value('event_start_time') == $date_info->get_the_value('event_end_time')){
+                        $event_time = $date_info->get_the_value('event_end_time');
+                    } else {
+                        $event_time = $date_info->get_the_value('event_start_time').' to '.$date_info->get_the_value('event_end_time');
+                    }
+                } elseif($date_info->get_the_value('event_start_time')!='') {
+                    $event_time = $date_info->get_the_value('event_start_time');
+                } elseif($date_info->get_the_value('event_end_time')!='') {
+                    $event_time = $date_info->get_the_value('event_end_time');
+                } else {
+                    $event_time = '';
+                }
                 $event_date_start = $date_info->get_the_value('event_start_datestamp');
                 $event_date_end = $date_info->get_the_value('event_end_datestamp');
                 $venue = $date_info->get_the_value('venue');
                 $title = $post->post_title;
-                print '<h3>'.$event_date.'</h3>';
+                print '<h3>'.$event_date.' '.$event_time.'</h3>';
                 print '<h4>'.$venue.'</h4>';
             }
         }

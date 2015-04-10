@@ -60,6 +60,19 @@ if (!class_exists('MSDEventShortcodes')) {
                 } else {
                     $events[$i]->event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                 }
+                if($date_info->get_the_value('event_start_time')!='' && $date_info->get_the_value('event_end_time')!=''){
+                    if($date_info->get_the_value('event_start_time') == $date_info->get_the_value('event_end_time')){
+                        $events[$i]->event_date .= '<br />'.$date_info->get_the_value('event_end_time');
+                    } else {
+                        $events[$i]->event_date .= '<br />'.$date_info->get_the_value('event_start_time').' to '.$date_info->get_the_value('event_end_time');
+                    }
+                } elseif($date_info->get_the_value('event_start_time')!='') {
+                    $events[$i]->event_date .= '<br />'.$date_info->get_the_value('event_start_time');
+                } elseif($date_info->get_the_value('event_end_time')!='') {
+                    $events[$i]->event_date .= '<br />'.$date_info->get_the_value('event_end_time');
+                } else {
+                    $events[$i]->event_date .= '';
+                }
                 $events[$i]->event_date_start = $date_info->get_the_value('event_start_datestamp');
                 $events[$i]->event_date_end = $date_info->get_the_value('event_end_datestamp');
                 $events[$i]->venue = $date_info->get_the_value('venue');

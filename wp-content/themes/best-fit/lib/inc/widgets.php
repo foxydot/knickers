@@ -18,7 +18,7 @@ class BestFitConnected extends MSDConnected {
             print '<div class="connected-form">';
             print do_shortcode('[gravityform id="'.$form_id.'" title="true" description="false" ajax="true"]');
             print '</div>';
-            add_action( 'wp_footer', array(&$this,'tabindex_javascript'), 60);
+            //add_action( 'wp_footer', array(&$this,'tabindex_javascript'), 60);
         }
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
            // print '</div>';
