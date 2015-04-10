@@ -29,16 +29,6 @@ $all_locations = $wpdb->get_col("SELECT meta_value
                 <div class="input_container half"><input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="cell">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">
-                
-            </div>
-        </div>
     </div>
 </div>
 <script>

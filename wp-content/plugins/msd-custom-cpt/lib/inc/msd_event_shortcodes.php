@@ -49,16 +49,18 @@ if (!class_exists('MSDEventShortcodes')) {
             $i = 0;
             foreach($events AS $up){
                 $date_info->the_meta($up->ID);
-                if($date_info->get_the_value('event_start_datestamp') && $date_info->get_the_value('event_end_datestamp')){
+                if($date_info->get_the_value('event_start_date') && $date_info->get_the_value('event_end_date')){
                     if($date_info->get_the_value('event_start_datestamp') == $date_info->get_the_value('event_end_datestamp')){
                         $events[$i]->event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                     } else {
                         $events[$i]->event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp')).'<br />to<br />'.date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                     }
-                } elseif($date_info->get_the_value('event_start_datestamp')) {
+                } elseif($date_info->get_the_value('event_start_date')) {
                     $events[$i]->event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp'));
-                } else {
+                } elseif($date_info->get_the_value('event_end_date')) {
                     $events[$i]->event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
+                } else {
+                    $events[$i]->event_date = '';
                 }
                 if($date_info->get_the_value('event_start_time')!='' && $date_info->get_the_value('event_end_time')!=''){
                     if($date_info->get_the_value('event_start_time') == $date_info->get_the_value('event_end_time')){
@@ -73,8 +75,8 @@ if (!class_exists('MSDEventShortcodes')) {
                 } else {
                     $events[$i]->event_date .= '';
                 }
-                $events[$i]->event_date_start = $date_info->get_the_value('event_start_datestamp');
-                $events[$i]->event_date_end = $date_info->get_the_value('event_end_datestamp');
+                $events[$i]->event_date_start = $date_info->get_the_value('event_start_date')?$date_info->get_the_value('event_start_datestamp'):1609372800;
+                $events[$i]->event_date_end = $date_info->get_the_value('event_end_date')?$date_info->get_the_value('event_end_datestamp'):1609372800;
                 $events[$i]->venue = $date_info->get_the_value('venue');
                 $events[$i]->title = $up->post_title;
                 $i++;

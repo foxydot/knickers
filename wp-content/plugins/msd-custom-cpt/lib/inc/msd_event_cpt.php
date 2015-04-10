@@ -367,16 +367,18 @@ if (!class_exists('MSDEventCPT')) {
             global $post,$date_info;
             if(is_single() && is_cpt($this->cpt)){
                 $date_info->the_meta($post->ID);
-                if($date_info->get_the_value('event_start_datestamp') && $date_info->get_the_value('event_end_datestamp')){
+                if($date_info->get_the_value('event_start_date') && $date_info->get_the_value('event_end_date')){
                     if($date_info->get_the_value('event_start_datestamp') == $date_info->get_the_value('event_end_datestamp')){
                         $event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                     } else {
                         $event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp')).' to '.date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
                     }
-                } elseif($date_info->get_the_value('event_start_datestamp')) {
+                } elseif($date_info->get_the_value('event_start_date')) {
                     $event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp'));
-                } else {
+                } elseif($date_info->get_the_value('event_end_date')) {
                     $event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
+                } else {
+                    $event_date = '';
                 }
                 if($date_info->get_the_value('event_start_time')!='' && $date_info->get_the_value('event_end_time')!=''){
                     if($date_info->get_the_value('event_start_time') == $date_info->get_the_value('event_end_time')){
@@ -391,8 +393,6 @@ if (!class_exists('MSDEventCPT')) {
                 } else {
                     $event_time = '';
                 }
-                $event_date_start = $date_info->get_the_value('event_start_datestamp');
-                $event_date_end = $date_info->get_the_value('event_end_datestamp');
                 $venue = $date_info->get_the_value('venue');
                 $title = $post->post_title;
                 print '<h3>'.$event_date.' '.$event_time.'</h3>';
