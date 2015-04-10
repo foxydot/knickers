@@ -36,7 +36,7 @@ if (!class_exists('MSDEventCPT')) {
             add_filter( 'enter_title_here', array(&$this,'change_default_title') );
             
             add_image_size('sponsor',275,120,FALSE);
-            
+            add_action('genesis_entry_header',array(&$this,'display_event_info'),40);
             
             if(class_exists('MSDEventShortcodes')){
                 $this->event_shortcodes = new MSDEventShortcodes();
@@ -361,6 +361,30 @@ if (!class_exists('MSDEventCPT')) {
                         'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
                         'prefix' => '_location_' // defaults to NULL
                     ));
+        }
+
+        function display_event_info(){
+            global $post,$date_info;
+            if(is_single() && is_cpt($this->cpt)){
+                $date_info->the_meta($post->ID);
+                if($date_info->get_the_value('event_start_datestamp') && $date_info->get_the_value('event_end_datestamp')){
+                    if($date_info->get_the_value('event_start_datestamp') == $date_info->get_the_value('event_end_datestamp')){
+                        $event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
+                    } else {
+                        $event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp')).' to '.date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
+                    }
+                } elseif($date_info->get_the_value('event_start_datestamp')) {
+                    $event_date = date( "M d, Y",$date_info->get_the_value('event_start_datestamp'));
+                } else {
+                    $event_date = date( "M d, Y",$date_info->get_the_value('event_end_datestamp'));
+                }
+                $event_date_start = $date_info->get_the_value('event_start_datestamp');
+                $event_date_end = $date_info->get_the_value('event_end_datestamp');
+                $venue = $date_info->get_the_value('venue');
+                $title = $post->post_title;
+                print '<h3>'.$event_date.'</h3>';
+                print '<h4>'.$venue.'</h4>';
+            }
         }
   } //End Class
 } //End if class exists statement

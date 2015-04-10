@@ -5499,7 +5499,6 @@ td.visible-print {
 /* Buttons */
 .button:hover,
 .button:visited,
-.button a,
 .button a:hover,
 .button a:visited {
   background-color: #548200;
@@ -5553,11 +5552,11 @@ input[type="reset"],
 input[type="submit"],
 textarea:focus,
 .button {
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 ::-moz-selection {
   background-color: #333;
@@ -5713,15 +5712,21 @@ input[type="reset"],
 input[type="submit"],
 .button,
 .entry-content .button {
-  background-color: #121c00;
-  border: none;
-  box-shadow: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 6px 10px;
-  padding: 0.6rem 1rem;
+  background-color: #548200;
+  border-radius: 0;
+  padding: 6px 24px;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
   text-transform: uppercase;
-  width: 100%;
+  display: table;
+  margin: 12px auto;
+  text-decoration: none;
 }
 button:hover,
 input:hover[type="button"],
@@ -5729,7 +5734,22 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover,
 .entry-content .button:hover {
-  background-color: #1a1a1a;
+  background-color: #548200;
+  border-radius: 0;
+  padding: 6px 24px;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: table;
+  margin: 12px auto;
+  text-decoration: none;
+  background-color: #334f00;
 }
 .entry-content .button:hover {
   color: #ffffff;
@@ -5849,7 +5869,8 @@ Common Classes
   margin-left: 24px;
   margin-left: 2.4rem;
 }
-.search-form input[type="submit"] {
+.search-form input[type="submit"],
+#searchform input[type="submit"] {
   border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
@@ -6178,19 +6199,27 @@ Site Header
 .header-image .site-header .widget-area {
   padding: 0;
 }
-.site-header .search-form {
+.site-header .screen-reader-text {
+  display: none;
+}
+.site-header .search-form,
+.site-header #searchform {
   float: right;
   margin-top: 24px;
   margin-top: 2.4rem;
 }
-.search-form {
+.search-form,
+#searchform {
   display: inline-block;
   padding: 0;
   margin-left: 1rem;
   position: relative;
   whitespace: nowrap;
 }
-.search-form input[type="search"] {
+.search-form input[type="search"],
+#searchform input[type="search"],
+.search-form input[type="text"],
+#searchform input[type="text"] {
   font-size: 1.4rem;
   width: 25rem;
   background: #ffffff;
@@ -6198,7 +6227,8 @@ Site Header
   border: 1px solid #cccccc;
   border-radius: 3px;
 }
-.search-form input[type="submit"] {
+.search-form input[type="submit"],
+#searchform input[type="submit"] {
   font-family: FontAwesome;
   background: transparent;
   border: 0 none;
@@ -6809,6 +6839,62 @@ Footer Widgets
 }
 .footer-widgets .search-form input:focus {
   border: 1px solid #ddd;
+}
+.footer-widgets .widget.msd-connected a {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.footer-widgets .widget.msd-connected a:hover {
+  opacity: 1;
+}
+.footer-widgets .widget.msd-connected .connected-form input,
+.footer-widgets .widget.msd-connected .connected-form textarea {
+  color: #ffffff;
+  background-color: #999999;
+  border: 1px solid #191919;
+  padding: 1rem !important;
+}
+.footer-widgets .widget.msd-connected .connected-form ::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .connected-form :-moz-placeholder {
+  /* Firefox 18- */
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .connected-form ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .connected-form :-ms-input-placeholder {
+  color: #ffffff;
+}
+.footer-widgets .widget.msd-connected .connected-form .gform_footer {
+  padding-right: 4px;
+}
+.footer-widgets .widget.msd-connected .connected-form input[type="submit"],
+.footer-widgets .widget.msd-connected .connected-form input[type="button"],
+.footer-widgets .widget.msd-connected .connected-form a.button {
+  background-color: #323232;
+  border-radius: 0;
+  padding: 6px 24px;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: table;
+  margin: 12px auto;
+  text-decoration: none;
+  margin: 0 auto;
+}
+.footer-widgets .widget.msd-connected .connected-form input[type="submit"]:hover,
+.footer-widgets .widget.msd-connected .connected-form input[type="button"]:hover,
+.footer-widgets .widget.msd-connected .connected-form a.button:hover {
+  background-color: #548200;
 }
 /*
 Site Footer

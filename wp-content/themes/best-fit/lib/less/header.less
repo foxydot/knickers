@@ -117,18 +117,21 @@ Site Header
   padding: 0;
 }
 
-.site-header .search-form {
-  float: right;
-  margin-top: 24px;
-  margin-top: 2.4rem;
+.site-header {
+  .screen-reader-text{display: none;}
+  .search-form,#searchform {
+    float: right;
+    margin-top: 24px;
+    margin-top: 2.4rem;
+  }
 }
-.search-form{
+.search-form,#searchform{
       display: inline-block;
       padding: 0;
       margin-left: 1rem;
       position: relative;
       whitespace: nowrap;
-      input[type="search"] {
+      input[type="search"],input[type="text"] {
         font-size: 1.4rem;
         width: 25rem;
         background: @white;

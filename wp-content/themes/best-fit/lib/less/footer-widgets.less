@@ -41,33 +41,80 @@ Footer Widgets
 }
 */
 
-.footer-widgets a {
-  color: @dkgreen;
+.footer-widgets {
+  a {
+    color: @dkgreen;
+  }
+  
+  a:hover {
+    color: lighten(@dkgreen, 10%);
+  }
+  
+  .widget {
+    margin-bottom: 24px;
+    margin-bottom: 2.4rem;
+  }
+  
+  .widget-title {
+    color: @white;
+    font-size: 14px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  
+  li {
+    list-style-type: none;
+    margin-bottom: 6px;
+    margin-bottom: 0.6rem;
+    word-wrap: break-word;
+  }
+  
+  .search-form input:focus {
+    border: 1px solid #ddd;
+  }
+  
+  .widget.msd-connected{
+    .connected-text{
+  }
+  a{
+    color: @white;
+    opacity: 0.8;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  .connected-form{
+    input, textarea{
+      color: @white;
+      background-color: @ltgrey;
+      border: 1px solid darken(@ltgrey, 50%);
+      padding: 1rem !important;
+    }
+    ::-webkit-input-placeholder {
+   color: @white;
+    }
+    
+    :-moz-placeholder { /* Firefox 18- */
+       color: @white;  
+    }
+    
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: @white;  
+    }
+    
+    :-ms-input-placeholder {  
+       color: @white;  
+    }
+    .gform_footer{
+      padding-right: 4px;
+    }
+    input[type="submit"],input[type="button"],a.button{
+      .button(@medgrey);
+      margin: 0 auto;
+    }
+    input[type="submit"]:hover,input[type="button"]:hover,a.button:hover{
+      background-color: @green;
+    }
+  }
 }
-
-.footer-widgets a:hover {
-  color: lighten(@dkgreen, 10%);
-}
-
-.footer-widgets .widget {
-  margin-bottom: 24px;
-  margin-bottom: 2.4rem;
-}
-
-.footer-widgets .widget-title {
-  color: @white;
-  font-size: 14px;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-}
-
-.footer-widgets li {
-  list-style-type: none;
-  margin-bottom: 6px;
-  margin-bottom: 0.6rem;
-  word-wrap: break-word;
-}
-
-.footer-widgets .search-form input:focus {
-  border: 1px solid #ddd;
 }

@@ -39,7 +39,7 @@
             font-size: 2.4rem;
             line-height: 1.2;
             margin: 1rem 0;
-            .button{
+            .button(){
               display: inline;
               padding: 0.6rem 2rem;
               font-size: 1.8rem;
@@ -89,6 +89,7 @@
       background-color: @ltgreen;
       background-repeat: no-repeat;
       background-position: center center;
+      background-blend-mode: screen;
       height: 260px;
       text-align: center;
       color: @white;
@@ -239,93 +240,6 @@
     font-size: 1.6rem;
     padding: 1.6rem;
     text-align: center;
-  }
-}
-#hp-footer{
-  background: @ltgreen url(../img/skyline.png) no-repeat top center;
-  background-size: cover;
-  color: @white;
-  a,a:hover{color: @white;}
-  .widget-title{
-    text-align: center;
-    font-size: 2.8rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    color: lighten(@green, 30%);
-  }
-  .connected-text{
-    text-align: center;
-    color:@white;
-    max-width: 75%;
-    margin: 0 auto;
-  }
-  .connected-form{
-    input, textarea{
-      color: @white;
-      background-color: @ltgreen;
-      border: 2px solid lighten(@ltgreen, 10%);
-      padding: 0.6rem;
-    }
-    ::-webkit-input-placeholder {
-   color: @white;
-    }
-    
-    :-moz-placeholder { /* Firefox 18- */
-       color: @white;  
-    }
-    
-    ::-moz-placeholder {  /* Firefox 19+ */
-       color: @white;  
-    }
-    
-    :-ms-input-placeholder {  
-       color: @white;  
-    }
-    input[type="submit"],input[type="button"],a.button{
-      background-color: @green;
-      border: 0;
-      font-weight: 700;
-    }
-    input[type="submit"]:hover,input[type="button"]:hover,a.button:hover{
-      background-color: darken(@green,5%);
-    }
-  }
-  .align-right{
-    text-align: right;
-  }
-  h3, h3.gform_title{
-    font-size: 2.0rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    color: lighten(@green, 30%);
-    margin: 10px 0 6px;
-  }
-  .connected-address{
-    span.msdsocial_street{
-      display: block;
-    }
-  }
-  .connected-social{
-    .social-media{
-      float: right;
-      a.fa{
-        background: none;
-        border: 1px solid lighten(@green,30%);
-        color: lighten(@green,30%);
-        padding: 40px 10px 4px 10px;
-        margin: 10px;
-        width: 50px;
-        font-size: 3rem;
-      }
-      a.fa.last-child{
-        margin-right: 0;
-      }
-      a.fa:hover{
-        background: @dkgreen;
-        border-color: @dkgreen;
-        color: @white;
-      }
-    }
   }
 }
 #hp-footer-1{

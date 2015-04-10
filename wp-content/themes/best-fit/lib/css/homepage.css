@@ -18,7 +18,6 @@
 /* Buttons */
 .button:hover,
 .button:visited,
-.button a,
 .button a:hover,
 .button a:visited {
   background-color: #548200;
@@ -90,12 +89,6 @@
   line-height: 1.2;
   margin: 1rem 0;
 }
-#hp-top .carousel .item .sd2-content-wrapper .sd2-node-caption .sd2-slide-text .button {
-  display: inline;
-  padding: 0.6rem 2rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
 #hp-top .carousel .item .full-slide-link-hit-area {
   display: block;
   position: absolute;
@@ -135,6 +128,7 @@
   background-color: #c2d19a;
   background-repeat: no-repeat;
   background-position: center center;
+  background-blend-mode: screen;
   height: 260px;
   text-align: center;
   color: #ffffff;
@@ -273,95 +267,6 @@
   font-size: 1.6rem;
   padding: 1.6rem;
   text-align: center;
-}
-#hp-footer {
-  background: #c2d19a url(../img/skyline.png) no-repeat top center;
-  background-size: cover;
-  color: #ffffff;
-}
-#hp-footer a,
-#hp-footer a:hover {
-  color: #ffffff;
-}
-#hp-footer .widget-title {
-  text-align: center;
-  font-size: 2.8rem;
-  text-transform: uppercase;
-  font-weight: 300;
-  color: #afff1c;
-}
-#hp-footer .connected-text {
-  text-align: center;
-  color: #ffffff;
-  max-width: 75%;
-  margin: 0 auto;
-}
-#hp-footer .connected-form input,
-#hp-footer .connected-form textarea {
-  color: #ffffff;
-  background-color: #c2d19a;
-  border: 2px solid #d7e1bd;
-  padding: 0.6rem;
-}
-#hp-footer .connected-form ::-webkit-input-placeholder {
-  color: #ffffff;
-}
-#hp-footer .connected-form :-moz-placeholder {
-  /* Firefox 18- */
-  color: #ffffff;
-}
-#hp-footer .connected-form ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #ffffff;
-}
-#hp-footer .connected-form :-ms-input-placeholder {
-  color: #ffffff;
-}
-#hp-footer .connected-form input[type="submit"],
-#hp-footer .connected-form input[type="button"],
-#hp-footer .connected-form a.button {
-  background-color: #548200;
-  border: 0;
-  font-weight: 700;
-}
-#hp-footer .connected-form input[type="submit"]:hover,
-#hp-footer .connected-form input[type="button"]:hover,
-#hp-footer .connected-form a.button:hover {
-  background-color: #446900;
-}
-#hp-footer .align-right {
-  text-align: right;
-}
-#hp-footer h3,
-#hp-footer h3.gform_title {
-  font-size: 2.0rem;
-  text-transform: uppercase;
-  font-weight: 300;
-  color: #afff1c;
-  margin: 10px 0 6px;
-}
-#hp-footer .connected-address span.msdsocial_street {
-  display: block;
-}
-#hp-footer .connected-social .social-media {
-  float: right;
-}
-#hp-footer .connected-social .social-media a.fa {
-  background: none;
-  border: 1px solid #afff1c;
-  color: #afff1c;
-  padding: 40px 10px 4px 10px;
-  margin: 10px;
-  width: 50px;
-  font-size: 3rem;
-}
-#hp-footer .connected-social .social-media a.fa.last-child {
-  margin-right: 0;
-}
-#hp-footer .connected-social .social-media a.fa:hover {
-  background: #121c00;
-  border-color: #121c00;
-  color: #ffffff;
 }
 #hp-footer-1 {
   margin-top: 2rem;

@@ -2,7 +2,7 @@
 /**
  * Connected Class
  */
-class HappyHeartConnected extends MSDConnected {
+class BestFitConnected extends MSDConnected {
 	function widget( $args, $instance ) {
 		extract($args);
         extract($instance);
@@ -12,7 +12,7 @@ class HappyHeartConnected extends MSDConnected {
 		if ( !empty( $title ) ) { print $before_title.$title.$after_title; } 
         if ( !empty( $text )){ print '<div class="connected-text">'.$text.'</div>'; }
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '<div class="col-md-7">';
+            //print '<div class="col-md-7">';
         }
         if ( $form_id > 0 ){
             print '<div class="connected-form">';
@@ -21,10 +21,8 @@ class HappyHeartConnected extends MSDConnected {
             add_action( 'wp_footer', array(&$this,'tabindex_javascript'), 60);
         }
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '</div>';
-        }
-        if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '<div class="col-md-5 align-right">';
+           // print '</div>';
+            //print '<div class="col-md-5 align-right">';
         }
         if ( $address ){
             print '<h3>Address</h3>';
@@ -87,10 +85,10 @@ class HappyHeartConnected extends MSDConnected {
         }	
         
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '</div>';
+            //print '</div>';
         }
 		echo $after_widget;
 	}
 }
 
-add_action('widgets_init', create_function('', 'return register_widget("HappyHeartConnected");'));
+add_action('widgets_init', create_function('', 'return register_widget("BestFitConnected");'));
