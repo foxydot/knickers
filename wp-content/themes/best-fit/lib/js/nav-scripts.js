@@ -3,14 +3,10 @@ jQuery(document).ready(function(){
 /*RESPONSIVE NAVIGATION, COMBINES MENUS EXCEPT FOR FOOTER MENU*/
 
     //jQuery('.menu').not('#footer .menu, #footer-widgets .menu').wrap('<div id="nav-response" class="nav-responsive">');
-    jQuery('#menu-primary-links').wrap('<div id="nav-response" class="nav-responsive">');
+    jQuery('.nav-primary .menu, .nav-secondary .menu').wrap('<div id="nav-response" class="nav-responsive">');
     jQuery('#nav-response').append('<a href="#" id="pull" class="closed"><strong>MENU</strong></a>');   
     
-    //move the search box
-    if(jQuery('#pull').css('display') !== 'none'){
-        var mysearch = jQuery('.nav-responsive').find('li.search');
-        jQuery('#pull').before(mysearch);
-    }
+    
     
     function sf_duplicate_menu( menu, append_to, menu_id, menu_class ){
                 var jQuerycloned_nav;
@@ -39,11 +35,18 @@ jQuery(document).ready(function(){
                 append_to.find('a').click( function(event){
                     event.stopPropagation();
                 } );
+                
             }
     
     //combinate
     sf_duplicate_menu( jQuery('.nav-responsive>ul'), jQuery('#pull'), 'mobile_menu', 'sf_mobile_menu' );
     
+    //move the search box
+    if(jQuery('#pull').css('display') !== 'none'){
+        var mysearch = jQuery('#searchform');
+        jQuery('#pull #mobile_menu:first .sf_first_mobile_item').before(mysearch);
+        mysearch.wrap('<li class="search menu-item"></li>');
+    }
             
      jQuery('#pull li .toggle-switch').click( function(e){
          e.preventDefault();
@@ -62,4 +65,7 @@ jQuery(document).ready(function(){
     } );
     
     
+     jQuery('#pull li.search input[type=text]').click( function(e){
+         $(this).focus();
+     });
 });

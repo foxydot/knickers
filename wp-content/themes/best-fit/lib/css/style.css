@@ -7343,12 +7343,64 @@ Media Queries
   .mobile-only {
     display: block;
   }
-  .nav-primary {
+  .header-image .site-header .title-area .site-title,
+  .header-image .site-header .title-area .site-description {
+    display: block;
+    float: none;
+    width: 100%;
+    position: relative;
+    background-position: top center;
+    margin: 0;
+  }
+  .header-image .site-header .title-area .site-title a,
+  .header-image .site-header .title-area .site-description a {
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    background-image: url(../img/mobile-logo.png);
+    background-position: top center;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .header-image .site-header .title-area .site-description {
+    left: 0;
+    background-image: none;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  .site-container > div {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .site-header .nav-responsive #searchform {
+    float: none;
+    margin: 0;
+    width: 97%;
+    text-indent: 0;
+    padding-right: 20px;
+  }
+  .site-header .nav-responsive #searchform input[type=text] {
+    width: 100%;
+    margin-right: 20px;
+  }
+  .site-header .nav-responsive #searchform input[type=submit] {
+    right: 2.8rem;
+  }
+  .nav-secondary ul li:hover {
+    background: none;
+    box-shadow: none;
+  }
+  .nav-primary,
+  .nav-secondary {
     float: none;
     display: block;
+    position: relative;
   }
   .nav-responsive {
     border-bottom: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
   }
   .nav-responsive ul {
     display: none;
