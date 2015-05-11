@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 /* Import Fonts
 ------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
@@ -341,9 +341,6 @@
 }
 @media only screen and (max-width: 479px) {
   /* Enter Your Custom Styles Here */
-  #hp-top {
-    display: none;
-  }
 }
 @media only screen and (max-width: 319px) {
   /* Enter Your Custom Styles Here */
