@@ -1,4 +1,18 @@
 <?php
+
+function msdlab_ts_query($query){
+    if($query->is_main_query())
+    ts_data($query);
+}
+//add_action('pre_get_posts','msdlab_ts_query');
+//add_filter( 'posts_request', 'dump_request' );
+
+function dump_request( $input ) {
+
+    var_dump($input);
+
+    return $input;
+}
 add_action('genesis_footer','msdlab_show_actions');
 function msdlab_show_actions(){
     global $wp_filter;

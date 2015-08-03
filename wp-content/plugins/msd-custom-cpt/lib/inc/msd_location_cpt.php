@@ -169,20 +169,28 @@ if (!class_exists('MSDLocationCPT')) {
            return $ret;
         }
 
-		function custom_query( $query ) {
-			if(!is_admin()){
-				if($query->is_main_query() && $query->is_search){
-					$searchterm = $query->query_vars['s'];
-					// we have to remove the "s" parameter from the query, because it will prevent the posts from being found
-					$query->query_vars['s'] = "";
-					
-					if ($searchterm != "") {
-						$query->set('meta_value',$searchterm);
-						$query->set('meta_compare','LIKE');
-					};
-					$query->set( 'post_type', array('post','page',$this->cpt) );
-				}
-			}
-		}			
+    function custom_query( $query ) {
+            if(!is_admin()){
+                $post_types = get_post_types();
+                if($query->is_main_query() && $query->is_search){
+                    $searchterm = $query->query_vars['s'];
+                    // we have to remove the "s" parameter from the query, because it will prevent the posts from being found
+                    $query->query_vars['s'] = "";
+                    
+                    if ($searchterm != "") {
+                        $query->set('meta_value',$searchterm);
+                        $query->set('meta_compare','LIKE');
+                    };
+
+                    $post_types[] = $this->cpt;
+                    $query->set( 'post_type', $post_types );
+                    //ts_data($query);
+                }
+                elseif( $query->is_main_query() && $query->is_archive ) {
+                    $post_types[] = $this->cpt;
+                    $query->set( 'post_type', $post_types );
+                }
+            }
+        } 		
   } //End Class
 } //End if class exists statement
